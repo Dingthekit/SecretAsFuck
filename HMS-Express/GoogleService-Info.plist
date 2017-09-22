@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>277092413201-v8fhgasbne84knudhrdrdau76c2d61eo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.277092413201-v8fhgasbne84knudhrdrdau76c2d61eo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA2wzZzp05KpZRe83APtO35VFea_W1FmxU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>277092413201</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ScrewIt.HMS-Express</string>
+	<key>PROJECT_ID</key>
+	<string>hms-express-c9571</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hms-express-c9571.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:277092413201:ios:140186aea196b281</string>
+	<key>DATABASE_URL</key>
+	<string>https://hms-express-c9571.firebaseio.com</string>
+</dict>
+</plist>
