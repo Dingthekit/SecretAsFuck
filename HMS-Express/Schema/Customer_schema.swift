@@ -11,24 +11,23 @@ import UIKit
 import Firebase
 
 private class Customer: NSObject {
+    
     var email: String
     var first_name: String
     var last_name: String
     var phonenumber: String
-    var company_name: String
-     
+    
     // Ctor
-    init(email: String, first_name: String, last_name: String, phonenumber: String, company_name: String) {
+    init(email: String, first_name: String, last_name: String, phonenumber: String) {
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
         self.phonenumber = phonenumber
-        self.company_name = company_name
     }
     
     // Dtor
     convenience override init() {
-        self.init(email: "", first_name: "", last_name: "", phonenumber:  "", company_name:  "")
+        self.init(email: "", first_name: "", last_name: "", phonenumber:  "")
     }
     
     init?(snapshot: DataSnapshot) {
@@ -38,15 +37,17 @@ private class Customer: NSObject {
         guard let first_name = dict["first_name"] else { return nil }
         guard let last_name = dict["last_name"] else { return nil }
         guard let phonenumber = dict["phonenumber"] else { return nil }
-        guard let company_name = dict["company_name"] else { return nil }
         
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
         self.phonenumber = phonenumber
-        self.company_name = company_name
     }
     
     
+    public func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Customer(email: email, first_name: first_name, last_name: last_name , phonenumber:phonenumber)
+        return copy
+    }
 }
 

@@ -22,41 +22,41 @@
         <scene sceneID="Ei1-cc-Sbb">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="booknow_main" storyboardName="Booknow" id="YnH-wI-CdR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Book now" image="booknowTab" id="tkY-T4-HDa"/>
+                    <tabBarItem key="tabBarItem" title="Book Now" image="booknowTab" selectedImage="booknowTab" id="tkY-T4-HDa"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VP0-i6-F3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8987" y="-2777"/>
+            <point key="canvasLocation" x="-8246" y="-2967"/>
         </scene>
         <!--Homestay-->
-        <scene sceneID="UyW-mg-JzL">
+        <scene sceneID="mad-yw-yqt">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Homestay_main" storyboardName="Homestay" id="HZb-gH-NST" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Homestay" image="homestayTab" id="lVT-ID-j7e"/>
+                <viewControllerPlaceholder storyboardName="Homestay" id="2JG-ix-NiK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Homestay" image="homestayTab" selectedImage="homestayTab" id="MyO-nT-1zn"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MS2-AB-dRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmc-YD-q50" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7991" y="-2777"/>
+            <point key="canvasLocation" x="-9007" y="-2883"/>
         </scene>
         <!--Main-->
-        <scene sceneID="gRc-MB-XPx">
+        <scene sceneID="wqf-KQ-vfm">
             <objects>
-                <tabBarController storyboardIdentifier="Home" title="Main" id="F6l-6y-Xen" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="s80-Gc-SW5">
+                <tabBarController storyboardIdentifier="Home" title="Main" id="Pnc-gy-e6p" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JOk-8t-El0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="YnH-wI-CdR" kind="relationship" relationship="viewControllers" id="3Wm-qs-c34"/>
-                        <segue destination="HZb-gH-NST" kind="relationship" relationship="viewControllers" id="gpb-Hl-iWg"/>
-                        <segue destination="lEk-wV-her" kind="relationship" relationship="viewControllers" id="fEd-aZ-Jhv"/>
-                        <segue destination="jAF-cD-pyg" kind="relationship" relationship="viewControllers" id="TT1-sj-efq"/>
+                        <segue destination="2JG-ix-NiK" kind="relationship" relationship="viewControllers" id="C53-GC-2tR"/>
+                        <segue destination="jAF-cD-pyg" kind="relationship" relationship="viewControllers" id="bTG-Cj-gz3"/>
+                        <segue destination="lEk-wV-her" kind="relationship" relationship="viewControllers" id="ac7-Gp-7hY"/>
+                        <segue destination="YnH-wI-CdR" kind="relationship" relationship="viewControllers" id="LCd-vE-g2M"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0wE-Ov-sud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1K-2v-ClW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7303" y="-3629"/>
+            <point key="canvasLocation" x="-7339" y="-3673"/>
         </scene>
         <!--Booking_main-->
         <scene sceneID="fof-29-b1R">
@@ -94,11 +94,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="mS8-h3-AxR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Booking" selectedImage="first" id="6ts-Un-QbV"/>
+                    <tabBarItem key="tabBarItem" title="Booking" id="6ts-Un-QbV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5c-lh-rdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6700" y="-2525"/>
+            <point key="canvasLocation" x="-7503" y="-2777"/>
         </scene>
         <!--Profile-->
         <scene sceneID="llz-tI-XPJ">
@@ -287,12 +287,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJb-Nb-obF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5894.202898550725" y="-2521.467391304348"/>
+            <point key="canvasLocation" x="-6636" y="-2777"/>
         </scene>
     </scenes>
     <resources>
         <image name="booknowTab" width="24" height="25"/>
-        <image name="first" width="30" height="30"/>
         <image name="homestayTab" width="32" height="28"/>
     </resources>
 </document>

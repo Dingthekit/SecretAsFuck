@@ -10,24 +10,26 @@ import UIKit
 
 class ToggleButton: UIButton {
     
-    var isOn = false
+    var isOn = true
+    var NameOfButton = String()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initButton()
+        initButton(NameOfButton)
     }
      
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initButton()
+        initButton(NameOfButton)
     }
     
-    func initButton() {
+    func initButton(_ NameOfButton : String) {
         layer.borderWidth = 2.0
         layer.borderColor = Colors.twitterBlue.cgColor
         layer.cornerRadius = frame.size.height/2
         
         setTitleColor(Colors.twitterBlue, for: .normal)
+        self.NameOfButton = NameOfButton
         addTarget(self, action: #selector(ToggleButton.buttonPressed), for: .touchUpInside)
     }
     
@@ -40,7 +42,7 @@ class ToggleButton: UIButton {
         isOn = bool
         
         let color = bool ? Colors.twitterBlue : .clear
-        let title = bool ? "Yes" : "No"
+        let title = bool ? self.NameOfButton : self.NameOfButton
         let titleColor = bool ? .white : Colors.twitterBlue
         
         setTitle(title, for: .normal)

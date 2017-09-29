@@ -10,8 +10,6 @@ import UIKit
 
 class booknow_confirmation: UIViewController {
 
-    // Stupid
-    // Here
     override func viewDidLoad() {
         super.viewDidLoad()
 

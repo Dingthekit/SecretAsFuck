@@ -9,12 +9,13 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class Homestay_info_page1: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource {
-
-    // Picker Variable
-    private var no_pax  = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
-    var no_pax_picker = UIPickerView()
-
+class Homestay_info_page1: UIViewController, UITextFieldDelegate {
+    
+    // Variable
+    var homestay_info_1 = Homestay_page1() ;
+    var homestay_info_2 = Homestay_page2() ;
+    var homestay_info_3 = Homestay_page3() ;
+    
     // PageControl
     var pageControl = UIPageControl()
     
@@ -24,41 +25,40 @@ class Homestay_info_page1: UIViewController , UIPickerViewDelegate , UIPickerVie
     @IBOutlet var Address_2 : UITextField!
     @IBOutlet var Postal_code: UITextField!
     @IBOutlet var City: UITextField!
+    @IBOutlet var State: UITextField!
     @IBOutlet var Type_Homestay : UITextField!
-    @IBOutlet var Capacity_Homestay: UITextField!
     
     // IBAction
-    @IBAction func confirm_button(_ sender: AnyObject) {
+    @IBAction func back_button(_ sender: AnyObject) {
+        
+        // Navigate to the next item
         let sb = UIStoryboard( name : "MainController", bundle : nil )
         let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
         vc.selectedIndex = 1
         self.present(vc, animated: true, completion: nil)
     }
     
+    
+    @IBAction func next_button(_ sender: AnyObject) {
+        
+        homestay_info_1 =  Homestay_page1.init( name: Name.text! , address1: Address_1.text! , address2: Address_2.text!, postalcode: Postal_code.text! , city: City.text! , state: State.text! , typeofhomestay: Type_Homestay.text! )
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page2") as! Homestay_info_page2
+
+        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_page1
+        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_page2
+        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_page3
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Number of pax
-        no_pax_picker.delegate = self
-        no_pax_picker.dataSource = self
         
-        // Toolbar
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector( self.donePicker ))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector( self.cancelPicker) )
-        
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-         
-        // Picker_setup
-        //Capacity_Homestay.inputAccessoryView = toolBar
-        //Capacity_Homestay.inputView = no_pax_picker
+        //self.Name.delegate = self
+        defaultvalue()
         
         // PageControl
         configurePageControl(0)
@@ -77,24 +77,6 @@ class Homestay_info_page1: UIViewController , UIPickerViewDelegate , UIPickerVie
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
-
-    
-    // PickerView Delegate
-    func numberOfComponents(in pickerView: UIPickerView) -> Int{
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return no_pax.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,forComponent component: Int) -> String? {
-        return no_pax[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int,inComponent component: Int){
-        
-    }
     
     // Page Control
     func configurePageControl( _ CurrPage : Int) {
@@ -106,14 +88,30 @@ class Homestay_info_page1: UIViewController , UIPickerViewDelegate , UIPickerVie
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.view.addSubview(pageControl)
     }
-    
-    // DoneButton
-    @objc func donePicker(){
-        Type_Homestay.endEditing(true)
-    }
-    
-    // CancelButton
-    @objc func cancelPicker(){
-        Type_Homestay.endEditing(true)
+
+    func defaultvalue(){
+        
+        if !(homestay_info_1.name.isEmpty) {
+            Name.text = homestay_info_1.name
+        }
+
+        if !(homestay_info_1.address1.isEmpty) {
+            Address_1.text = homestay_info_1.address1
+        }
+        if !(homestay_info_1.address2.isEmpty) {
+            Address_2.text = homestay_info_1.address2
+        }
+        if !(homestay_info_1.postalcode.isEmpty) {
+            Postal_code.text = homestay_info_1.postalcode
+        }
+        if !(homestay_info_1.city.isEmpty) {
+            City.text = homestay_info_1.city
+        }
+        if !(homestay_info_1.state.isEmpty) {
+            State.text = homestay_info_1.state
+        }
+        if !(homestay_info_1.typeofhomestay.isEmpty) {
+            Type_Homestay.text = homestay_info_1.typeofhomestay
+        }
     }
 }

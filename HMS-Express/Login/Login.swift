@@ -18,7 +18,7 @@ class Login: UIViewController, UITextFieldDelegate {
     @IBAction func loginAction(_ sender: AnyObject) {
        login_function()
     }
-    
+
     // Variable
     private var ref: DatabaseReference!
     private var employees : [Employee] = []
@@ -27,6 +27,7 @@ class Login: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Start Listening
+        
         start_queue()
         // Done Listening
         
@@ -38,7 +39,22 @@ class Login: UIViewController, UITextFieldDelegate {
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+
     }
+    
+    // Register Code
+    func register_code() {
+        let ref = Database.database().reference().child("Code")
+        let Code : [ String : Any ] = [ "isUsed" : false,
+                                       "Code_Type" : "SuperAdmin",
+                                       "Company" : "" ]
+        
+        ref.child("12345").setValue(Code)
+        ref.child("67890").setValue(Code)
+      //  ref.child("12345").child("isUsed").setValue(true)
+
+    }
+    
     
     // Keyboard Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -59,7 +75,8 @@ class Login: UIViewController, UITextFieldDelegate {
     func start_queue(){
         
         let ref = Database.database().reference(withPath: "System_user")
-        
+        employees.removeAll()
+
         ref.observe(.value, with: { snapshot in
             
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -112,8 +129,9 @@ class Login: UIViewController, UITextFieldDelegate {
                         self.present(vc, animated: true, completion: nil)
 
                     }else {
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "first_time_user")
-                        self.present(vc!, animated: true, completion: nil)
+                        let sb = UIStoryboard( name : "Welcome" , bundle : nil)
+                        let vc = sb.instantiateViewController(withIdentifier: "Welcome_main")
+                        self.present(vc, animated: true, completion: nil)
                     }
                 } else {
                     

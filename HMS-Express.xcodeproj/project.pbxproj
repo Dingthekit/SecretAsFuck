@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B37CFC31F763F440050146B /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B37CFC21F763F440050146B /* Welcome.storyboard */; };
+		0B37CFC81F7642AB0050146B /* Welcome_host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B37CFC71F7642AB0050146B /* Welcome_host.swift */; };
+		0B37CFCD1F7670E00050146B /* Welcome_main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B37CFCC1F7670E00050146B /* Welcome_main.swift */; };
+		0B4B18991F779D2A00BC4B2D /* pax_picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B18981F779D2A00BC4B2D /* pax_picker.swift */; };
+		0B4B189B1F77A0FA00BC4B2D /* Homestay_page2_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B189A1F77A0FA00BC4B2D /* Homestay_page2_schema.swift */; };
+		0B4B189D1F77A23400BC4B2D /* Homestay_page3_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B189C1F77A23400BC4B2D /* Homestay_page3_schema.swift */; };
 		0B795B371F7596CF00252B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B361F7596CF00252B9F /* AppDelegate.swift */; };
 		0B795B3E1F7596CF00252B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B3D1F7596CF00252B9F /* Assets.xcassets */; };
 		0B795B411F7596CF00252B9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B3F1F7596CF00252B9F /* LaunchScreen.storyboard */; };
@@ -15,13 +21,12 @@
 		0B795B581F75972000252B9F /* booknow_confirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B531F75972000252B9F /* booknow_confirmation.swift */; };
 		0B795B5D1F75972700252B9F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B591F75972600252B9F /* Login.swift */; };
 		0B795B5E1F75972700252B9F /* reset_password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B5A1F75972600252B9F /* reset_password.swift */; };
-		0B795B5F1F75972700252B9F /* first_time_user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B5B1F75972700252B9F /* first_time_user.swift */; };
 		0B795B601F75972700252B9F /* sign_up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B5C1F75972700252B9F /* sign_up.swift */; };
 		0B795B621F75972D00252B9F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B611F75972D00252B9F /* Profile.swift */; };
 		0B795B681F75973500252B9F /* Booking_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B631F75973300252B9F /* Booking_schema.swift */; };
 		0B795B691F75973500252B9F /* User_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B641F75973400252B9F /* User_schema.swift */; };
 		0B795B6A1F75973500252B9F /* Customer_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B651F75973400252B9F /* Customer_schema.swift */; };
-		0B795B6B1F75973500252B9F /* Homestay_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B661F75973400252B9F /* Homestay_schema.swift */; };
+		0B795B6B1F75973500252B9F /* Homestay_page1_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B661F75973400252B9F /* Homestay_page1_schema.swift */; };
 		0B795B6C1F75973500252B9F /* Company_schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B671F75973400252B9F /* Company_schema.swift */; };
 		0B795B741F75974500252B9F /* Homestay_info_page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B6D1F75974300252B9F /* Homestay_info_page2.swift */; };
 		0B795B751F75974500252B9F /* Homestay_info_page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B6E1F75974300252B9F /* Homestay_info_page1.swift */; };
@@ -44,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		017D02EDAA384F5E13733111 /* Pods-HMS-Express.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMS-Express.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HMS-Express/Pods-HMS-Express.debug.xcconfig"; sourceTree = "<group>"; };
+		0B37CFC21F763F440050146B /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		0B37CFC71F7642AB0050146B /* Welcome_host.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_host.swift; sourceTree = "<group>"; };
+		0B37CFCC1F7670E00050146B /* Welcome_main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome_main.swift; sourceTree = "<group>"; };
+		0B4B18981F779D2A00BC4B2D /* pax_picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pax_picker.swift; sourceTree = "<group>"; };
+		0B4B189A1F77A0FA00BC4B2D /* Homestay_page2_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_page2_schema.swift; sourceTree = "<group>"; };
+		0B4B189C1F77A23400BC4B2D /* Homestay_page3_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_page3_schema.swift; sourceTree = "<group>"; };
 		0B795B331F7596CF00252B9F /* HMS-Express.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Express.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B795B361F7596CF00252B9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B795B3D1F7596CF00252B9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,13 +65,12 @@
 		0B795B531F75972000252B9F /* booknow_confirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booknow_confirmation.swift; sourceTree = "<group>"; };
 		0B795B591F75972600252B9F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		0B795B5A1F75972600252B9F /* reset_password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset_password.swift; sourceTree = "<group>"; };
-		0B795B5B1F75972700252B9F /* first_time_user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = first_time_user.swift; sourceTree = "<group>"; };
 		0B795B5C1F75972700252B9F /* sign_up.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sign_up.swift; sourceTree = "<group>"; };
 		0B795B611F75972D00252B9F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		0B795B631F75973300252B9F /* Booking_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking_schema.swift; sourceTree = "<group>"; };
 		0B795B641F75973400252B9F /* User_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_schema.swift; sourceTree = "<group>"; };
 		0B795B651F75973400252B9F /* Customer_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer_schema.swift; sourceTree = "<group>"; };
-		0B795B661F75973400252B9F /* Homestay_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_schema.swift; sourceTree = "<group>"; };
+		0B795B661F75973400252B9F /* Homestay_page1_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_page1_schema.swift; sourceTree = "<group>"; };
 		0B795B671F75973400252B9F /* Company_schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company_schema.swift; sourceTree = "<group>"; };
 		0B795B6D1F75974300252B9F /* Homestay_info_page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_info_page2.swift; sourceTree = "<group>"; };
 		0B795B6E1F75974300252B9F /* Homestay_info_page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_info_page1.swift; sourceTree = "<group>"; };
@@ -94,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B37CFC41F7642440050146B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				0B37CFCC1F7670E00050146B /* Welcome_main.swift */,
+				0B37CFC71F7642AB0050146B /* Welcome_host.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		0B795B2A1F7596CF00252B9F = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				0B795B361F7596CF00252B9F /* AppDelegate.swift */,
+				0B37CFC41F7642440050146B /* Welcome */,
 				0B795B861F75994300252B9F /* Booking */,
 				0B795B8F1F75997500252B9F /* Book Now */,
 				0B795B841F7598BF00252B9F /* Profile */,
@@ -128,6 +148,7 @@
 				0B795B9A1F759E9800252B9F /* MainController.storyboard */,
 				0B795B981F759E5F00252B9F /* Booknow.storyboard */,
 				0B795B961F759E4600252B9F /* Main.storyboard */,
+				0B37CFC21F763F440050146B /* Welcome.storyboard */,
 				0B795B3F1F7596CF00252B9F /* LaunchScreen.storyboard */,
 				0B795B901F759C1800252B9F /* GoogleService-Info.plist */,
 				0B795B421F7596CF00252B9F /* Info.plist */,
@@ -138,7 +159,6 @@
 		0B795B801F75985E00252B9F /* Homestay */ = {
 			isa = PBXGroup;
 			children = (
-				0B795B701F75974400252B9F /* ButtonColour.swift */,
 				0B795B711F75974400252B9F /* Register_View.swift */,
 				0B795B6E1F75974300252B9F /* Homestay_info_page1.swift */,
 				0B795B6D1F75974300252B9F /* Homestay_info_page2.swift */,
@@ -154,7 +174,9 @@
 				0B795B631F75973300252B9F /* Booking_schema.swift */,
 				0B795B671F75973400252B9F /* Company_schema.swift */,
 				0B795B651F75973400252B9F /* Customer_schema.swift */,
-				0B795B661F75973400252B9F /* Homestay_schema.swift */,
+				0B4B189A1F77A0FA00BC4B2D /* Homestay_page2_schema.swift */,
+				0B4B189C1F77A23400BC4B2D /* Homestay_page3_schema.swift */,
+				0B795B661F75973400252B9F /* Homestay_page1_schema.swift */,
 				0B795B641F75973400252B9F /* User_schema.swift */,
 			);
 			path = Schema;
@@ -163,7 +185,6 @@
 		0B795B831F75989F00252B9F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0B795B5B1F75972700252B9F /* first_time_user.swift */,
 				0B795B591F75972600252B9F /* Login.swift */,
 				0B795B5A1F75972600252B9F /* reset_password.swift */,
 				0B795B5C1F75972700252B9F /* sign_up.swift */,
@@ -183,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				0B795B721F75974400252B9F /* UItoggleButton.swift */,
+				0B795B701F75974400252B9F /* ButtonColour.swift */,
+				0B4B18981F779D2A00BC4B2D /* pax_picker.swift */,
 			);
 			path = HMStoggle;
 			sourceTree = "<group>";
@@ -294,6 +317,7 @@
 				0B795B9D1F759EAB00252B9F /* Booknow.storyboard in Resources */,
 				0B795B3E1F7596CF00252B9F /* Assets.xcassets in Resources */,
 				0B795B9E1F759F8900252B9F /* GoogleService-Info.plist in Resources */,
+				0B37CFC31F763F440050146B /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,25 +389,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B795B8D1F75996300252B9F /* booknow_customer_registration.swift in Sources */,
-				0B795B5F1F75972700252B9F /* first_time_user.swift in Sources */,
 				0B795B8B1F75996300252B9F /* booknow_main.swift in Sources */,
 				0B795B5D1F75972700252B9F /* Login.swift in Sources */,
 				0B795B681F75973500252B9F /* Booking_schema.swift in Sources */,
 				0B795B621F75972D00252B9F /* Profile.swift in Sources */,
+				0B4B189D1F77A23400BC4B2D /* Homestay_page3_schema.swift in Sources */,
 				0B795B8E1F75996300252B9F /* booknow_customerinfo.swift in Sources */,
 				0B795B8C1F75996300252B9F /* booknow_search.swift in Sources */,
 				0B795B6C1F75973500252B9F /* Company_schema.swift in Sources */,
+				0B4B189B1F77A0FA00BC4B2D /* Homestay_page2_schema.swift in Sources */,
 				0B795B5E1F75972700252B9F /* reset_password.swift in Sources */,
 				0B795B4D1F75971700252B9F /* Bookinglist_main.swift in Sources */,
+				0B37CFC81F7642AB0050146B /* Welcome_host.swift in Sources */,
 				0B795B6A1F75973500252B9F /* Customer_schema.swift in Sources */,
 				0B795B581F75972000252B9F /* booknow_confirmation.swift in Sources */,
 				0B795B751F75974500252B9F /* Homestay_info_page1.swift in Sources */,
 				0B795B691F75973500252B9F /* User_schema.swift in Sources */,
+				0B37CFCD1F7670E00050146B /* Welcome_main.swift in Sources */,
 				0B795B4E1F75971700252B9F /* Bookinglist_detail.swift in Sources */,
 				0B795B791F75974500252B9F /* UItoggleButton.swift in Sources */,
 				0B795B761F75974500252B9F /* Homestay_info_page3.swift in Sources */,
 				0B795B7A1F75974500252B9F /* Homestay_main.swift in Sources */,
-				0B795B6B1F75973500252B9F /* Homestay_schema.swift in Sources */,
+				0B4B18991F779D2A00BC4B2D /* pax_picker.swift in Sources */,
+				0B795B6B1F75973500252B9F /* Homestay_page1_schema.swift in Sources */,
 				0B795B371F7596CF00252B9F /* AppDelegate.swift in Sources */,
 				0B795B601F75972700252B9F /* sign_up.swift in Sources */,
 				0B795B771F75974500252B9F /* ButtonColour.swift in Sources */,

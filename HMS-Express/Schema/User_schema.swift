@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-public class Employee: NSObject {
+internal class Employee: NSObject {
     var email: String
     var first_name: String
     var last_name: String
