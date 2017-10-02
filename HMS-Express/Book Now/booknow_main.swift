@@ -11,13 +11,35 @@ import UIKit
 class booknow_main: UIViewController, UITextFieldDelegate, UIPickerViewDelegate  {
 
     
-
-    @IBOutlet var checkin_uitext: UITextField!
-    @IBOutlet var checkout_uitext: UITextField!
-    
+    // Var
     var checkin_picker = UIDatePicker()
     var checkout_picker = UIDatePicker()
 
+    // IBOutlet
+    @IBOutlet var checkin_uitext: UITextField!
+    @IBOutlet var checkout_uitext: UITextField!
+    @IBOutlet  var adult_uitext: UITextField!
+    @IBOutlet  var children_uitext: UITextField!
+    
+    // IBAction
+    @IBAction func AddAction_adult(_ sender: UIButton) {
+
+    }
+    
+    @IBAction func MinusAction_adult(_ sender: UIButton) {
+
+    }
+    
+    @IBAction func AddAction_child(_ sender: UIButton) {
+
+    }
+    
+    @IBAction func MinusAction_child(_ sender: UIButton) {
+
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,11 +75,7 @@ class booknow_main: UIViewController, UITextFieldDelegate, UIPickerViewDelegate 
         checkout_uitext.inputView = checkout_picker
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     // Toolbar
     func donePressed(){
@@ -65,10 +83,9 @@ class booknow_main: UIViewController, UITextFieldDelegate, UIPickerViewDelegate 
     }
     
     func cancelPressed(){
-        view.endEditing(true) // or do something
+        view.endEditing(true)
     }
 
-    
     // DoneButton
     @objc func donePicker(sender: UIButton){
         if checkin_uitext.isFirstResponder{
@@ -96,4 +113,13 @@ class booknow_main: UIViewController, UITextFieldDelegate, UIPickerViewDelegate 
             checkout_uitext.endEditing(true)
         }
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
+    
 }

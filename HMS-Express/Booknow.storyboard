@@ -109,21 +109,33 @@
                                 <rect key="frame" x="247" y="410" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="AddAction_adult:" destination="MSc-R6-jlE" eventType="touchUpInside" id="n3W-AW-aNz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8v-sO-OOl">
                                 <rect key="frame" x="247" y="455" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="AddAction_child:" destination="MSc-R6-jlE" eventType="touchUpInside" id="XzZ-cZ-ncm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-Hg-68d">
                                 <rect key="frame" x="132" y="410" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="MinusAction_adult:" destination="MSc-R6-jlE" eventType="touchUpInside" id="NlH-Y2-SaV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npS-vW-8Q9">
                                 <rect key="frame" x="132" y="455" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="MinusAction_child:" destination="MSc-R6-jlE" eventType="touchUpInside" id="P6j-7R-cs1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b99-S8-jpv">
                                 <rect key="frame" x="36" y="548" width="343" height="30"/>
@@ -146,8 +158,10 @@
                     <tabBarItem key="tabBarItem" title="Book now" image="booknowTab" landscapeImage="booknowTab" largeContentSizeImage="search-tab" selectedImage="booknowTab" id="dLZ-2o-Suq"/>
                     <navigationItem key="navigationItem" id="Rcq-vW-R1E"/>
                     <connections>
+                        <outlet property="adult_uitext" destination="vEL-un-NlM" id="f8U-tw-3iH"/>
                         <outlet property="checkin_uitext" destination="ZOD-cO-l10" id="c3R-Vj-YXz"/>
                         <outlet property="checkout_uitext" destination="Hdz-T7-8s9" id="ycJ-uD-dTH"/>
+                        <outlet property="children_uitext" destination="B4i-VD-kc1" id="zlR-o6-TVu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOd-TN-VFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,6 +171,7 @@
         <!--Booking_confirm-->
         <scene sceneID="oF2-k7-WNv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nYL-PP-6cU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Booking_confirm" id="O8j-S5-ygl" customClass="booknow_confirmation" customModule="HMS_Express" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eSH-Zi-ZEL"/>
@@ -187,9 +202,7 @@
                                     <color key="titleColor" red="0.99606269599999997" green="0.9921298623" blue="0.99607473609999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lru-a2-vVy" kind="show" id="KtX-1r-1C0">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="lru-a2-vVy" kind="show" id="hvh-Kf-yLF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-N1-a2y">
@@ -228,11 +241,6 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.99606269599999997" green="0.9921298623" blue="0.99607473609999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="O8j-S5-ygl" kind="show" id="O5J-rh-Rxe">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6C-T0-urN">
                                 <rect key="frame" x="28" y="280" width="144" height="21"/>
@@ -314,9 +322,8 @@
                         <viewLayoutGuide key="safeArea" id="1TN-69-mT6"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nYL-PP-6cU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9375.36231884058" y="-119.0217391304348"/>
+            <point key="canvasLocation" x="-9375" y="-281"/>
         </scene>
         <!--customer_registration-->
         <scene sceneID="Xf3-sa-dsE">
@@ -349,30 +356,20 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.27109923959999999" green="0.44878864289999998" blue="0.58198541400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="next_button:" destination="9my-1e-FnW" eventType="touchUpInside" id="FVO-GR-nYu"/>
+                                    <segue destination="O8j-S5-ygl" kind="show" id="uC1-Ys-w6Z"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhS-jw-ArB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhS-jw-ArB">
                                 <rect key="frame" x="36" y="238" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pj-dY-dRs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pj-dY-dRs">
                                 <rect key="frame" x="36" y="207" width="105" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.27109923959999999" green="0.44878864289999998" blue="0.58198541400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQN-W9-FQU">
-                                <rect key="frame" x="36" y="305" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-jd-n2V">
-                                <rect key="frame" x="36" y="276" width="90" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.27109923959999999" green="0.44878864289999998" blue="0.58198541400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -414,24 +411,39 @@
                                     <color key="titleColor" red="0.27109923959999999" green="0.44878864289999998" blue="0.58198541400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-Zp-4dP">
+                                <rect key="frame" x="36" y="305" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUN-eM-4Py">
+                                <rect key="frame" x="36" y="274" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.27109923959999999" green="0.44878864289999998" blue="0.58198541400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="sSW-9m-SmB"/>
                     </view>
                     <connections>
-                        <outlet property="contact_uitext" destination="d5q-DL-0lG" id="2RQ-bw-Huq"/>
-                        <outlet property="email_uitext" destination="zZg-pY-IKc" id="t7E-oA-qqe"/>
-                        <outlet property="gender_uitext" destination="CQN-W9-FQU" id="SN4-wp-q6h"/>
-                        <outlet property="name_uitext" destination="HhS-jw-ArB" id="04Y-1Q-KYp"/>
+                        <outlet property="contact_uitext" destination="d5q-DL-0lG" id="Oqt-j4-i7m"/>
+                        <outlet property="email_uitext" destination="zZg-pY-IKc" id="bo2-ud-hLQ"/>
+                        <outlet property="firstname_uitext" destination="HhS-jw-ArB" id="kIa-VJ-bzv"/>
+                        <outlet property="lastname_uitext" destination="Td8-Zp-4dP" id="719-22-Ixy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK7-Yc-owX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9430" y="681"/>
+            <point key="canvasLocation" x="-8593" y="-1007"/>
         </scene>
         <!--customer_info-->
         <scene sceneID="Joh-vM-hd0">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UtR-gl-5SL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="customer_info" id="lru-a2-vVy" customClass="booknow_customerinfo" customModule="HMS_Express" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ic6-se-Smz"/>
@@ -466,9 +478,7 @@
                                     <color key="titleColor" red="0.27109923959999999" green="0.44878864289999998" blue="0.58198541400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="O8j-S5-ygl" kind="show" id="56N-z8-lYI">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="O8j-S5-ygl" kind="show" id="he4-PE-8G0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsH-O2-by4">
@@ -504,7 +514,6 @@
                         <viewLayoutGuide key="safeArea" id="KmD-Ni-T6J"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UtR-gl-5SL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-9375" y="-1006"/>
         </scene>
@@ -581,6 +590,7 @@
         <image name="wpp1" width="2160" height="3841"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4fc-Pe-B8f"/>
+        <segue reference="hvh-Kf-yLF"/>
+        <segue reference="uC1-Ys-w6Z"/>
     </inferredMetricsTieBreakers>
 </document>

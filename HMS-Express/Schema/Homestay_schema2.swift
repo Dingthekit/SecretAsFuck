@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-internal class Homestay_page2 : NSObject , NSCopying {
+internal class Homestay_schema2 : NSObject , NSCopying {
     
     // Variable
     var guest: String
@@ -54,8 +54,17 @@ internal class Homestay_page2 : NSObject , NSCopying {
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Homestay_page2(guest: guest, bedroom: bedroom, bathroom: bathroom , kingbed : kingbed, queenbed : queenbed, singlebed : singlebed)
+        let copy = Homestay_schema2(guest: guest, bedroom: bedroom, bathroom: bathroom , kingbed : kingbed, queenbed : queenbed, singlebed : singlebed)
         return copy
+    }
+    
+    public func convert_to_list() -> [String : String] {
+        return [ "Guest" : self.guest ,
+                 "Bedroom" : self.bedroom ,
+                 "Bathroom" : self.bathroom ,
+                 "KingBed" : self.kingbed ,
+                 "QueenBed" : self.queenbed ,
+                 "SingleBed" : self.singlebed ]
     }
     
 }

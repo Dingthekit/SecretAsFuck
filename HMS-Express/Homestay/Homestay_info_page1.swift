@@ -12,9 +12,9 @@ import FirebaseAuth
 class Homestay_info_page1: UIViewController, UITextFieldDelegate {
     
     // Variable
-    var homestay_info_1 = Homestay_page1() ;
-    var homestay_info_2 = Homestay_page2() ;
-    var homestay_info_3 = Homestay_page3() ;
+    var homestay_info_1 = Homestay_schema1() ;
+    var homestay_info_2 = Homestay_schema2() ;
+    var homestay_info_3 = Homestay_schema3() ;
     
     // PageControl
     var pageControl = UIPageControl()
@@ -41,13 +41,13 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
     
     @IBAction func next_button(_ sender: AnyObject) {
         
-        homestay_info_1 =  Homestay_page1.init( name: Name.text! , address1: Address_1.text! , address2: Address_2.text!, postalcode: Postal_code.text! , city: City.text! , state: State.text! , typeofhomestay: Type_Homestay.text! )
+        homestay_info_1 =  Homestay_schema1.init( name: Name.text! , address1: Address_1.text! , address2: Address_2.text!, postalcode: Postal_code.text! , city: City.text! , state: State.text! , typeofhomestay: Type_Homestay.text! )
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page2") as! Homestay_info_page2
 
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_page1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_page2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_page3
+        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
         
         self.present(vc, animated: true, completion: nil)
     }

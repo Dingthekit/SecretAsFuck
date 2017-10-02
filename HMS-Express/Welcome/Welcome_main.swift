@@ -6,21 +6,21 @@
 //  Copyright © 2017 Ding Zhan Chia. All rights reserved.
 //
 
-
 import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import NVActivityIndicatorView
 
-class Welcome_main: UIViewController, UITextFieldDelegate{
+
+class Welcome_main: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable{
     
     // Variable
-    var ref: DatabaseReference!
-    let curruser = Auth.auth().currentUser
-    let when = DispatchTime.now() + 10
-    var listofcode = [[String : Any]]()
-    var listofcode2 = [[String : Any]]()
-    var counter = 1
+    private var ref: DatabaseReference!
+    private let curruser = Auth.auth().currentUser
+    private var listofcode = Code()
+    
+    private var sampleindicator : NVActivityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: UIScreen.main.bounds.size.width * 0.5 - 25 , y: UIScreen.main.bounds.size.height * 0.5 - 25, width: 50, height: 50), type: .ballRotateChase , color: UIColor.black , padding: CGFloat(0))
     
     // IBOutlet
     @IBOutlet var firstname_uitext: UITextField!
@@ -28,115 +28,9 @@ class Welcome_main: UIViewController, UITextFieldDelegate{
     @IBOutlet var mobile_uitext: UITextField!
     @IBOutlet var Code_UItext: UITextField!
 
+    // IBAction
     @IBAction func confirm_button(_ sender: AnyObject) {
-        
-
-        // If all field is filled
-        if !( (firstname_uitext.text?.isEmpty)! || (lastname_uitext.text?.isEmpty)! || (mobile_uitext.text?.isEmpty)! || (Code_UItext.text?.isEmpty)!) {
-            
-            let user_email : String = curruser!.email!
-            let first_name : String = firstname_uitext.text!
-            let last_name : String = lastname_uitext.text!
-            let phonenumber : String = mobile_uitext.text!
-            let user_uid : String = (curruser?.uid)!
-            
-            let employee = ["UID": user_uid,
-                            "email": user_email ,
-                            "first_name": first_name,
-                            "last_name": last_name ,
-                            "phone_number": phonenumber,
-                            "privilage": "staff" ]
-            
-            let code : String = Code_UItext.text!
-            print("---Start---")
-            
-            self.dequeue_code(code)
-            
-            print(counter)
-            print("---END---")
-            counter += 1
-        
-            // Check if the code Valid
-            printcode()
-            if ( code_valid() ) {
-                
-                let curr_code_type : String = code_type()
-                print("curr_code_type:")
-                print(curr_code_type)
-                
-                // If code is SuperAdmin / Admin / Manager
-                if( curr_code_type == "Staff" ) {
-                    
-                    // Register Employee Information
-                    let ref = Database.database().reference().child("System_user")
-                    let flagoff = Database.database().reference().child("Code")
-                    
-                    let employee = ["UID": user_uid,
-                                    "email": user_email ,
-                                    "first_name": first_name,
-                                    "last_name": last_name ,
-                                    "phone_number": phonenumber,
-                                    "privilage": "" ,
-                                    "Company_name" : code_company() ]
-                    
-                    
-                    ref.child(user_uid).setValue(employee)
-                    flagoff.child(Code_UItext.text!).child("isUsed").setValue(true)
-                    let sb = UIStoryboard( name : "MainController" , bundle : nil)
-                    let vc = sb.instantiateViewController(withIdentifier: "Home")  as! UITabBarController
-                    vc.selectedIndex = 0
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                    
-                // If code is SuperAdmin / Admin / Manager
-                else if ( curr_code_type == "SuperAdmin" ||
-                          curr_code_type == "Admin" ||
-                          curr_code_type == "Manager") {
- 
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Welcome_host") as! Welcome_host
-                    vc.employee = employee
-                    vc.code = Code_UItext.text!
-                    self.present(vc, animated: true, completion: nil)
-                    
-                }
-                    
-                // Codetype is not any of above
-                else {
-                    
-                    // Alert
-                    let alertController = UIAlertController(title: "", message: "The code enter is invalid.", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    present(alertController, animated: true, completion: nil)
-                }
-                
-            }
-            // Code is invalid
-            else{
-                print("CODE WRONG")
-                let alertController = UIAlertController(title: "", message: "The code enter is expired.", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                present(alertController, animated: true, completion: nil)
-            }
-            
-
-        // If one of the field is not filled
-        } else {
-            
-            // Alert
-            let alertController = UIAlertController(title: "", message: "Please fill up all the information.", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
-            
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.printcode()
-        }
+        confirm_action()
     }
     
     // Back Button
@@ -176,79 +70,126 @@ class Welcome_main: UIViewController, UITextFieldDelegate{
     }
 
     // Dequeue All Code
-    func dequeue_code(_ code : String){
-        print("Inner Dequeue start")
-
-        let ref = Database.database().reference(withPath: "Code").child(code)
-        var item =  [String : Any]()
-        // self.listofcode2.removeAll()
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            for snap in snapshots as [DataSnat pshottt]{
-                
-                print(snap.key)
-                /*
-                if snapshot.exists() {
-                    print(snapshot.key);
-                    print(snapshot.value as! String);
-                 
-                     if snapshot.key == code {
-                     item = snapshot.value as! [String : Any]
-                     self.listofcode2.append(item)
-                     }*/
-                }
-            }
-
-            
-        })
-        print("Inner Dequeue Done")
-    }
-    
-    // code_valid
-    func code_valid() -> Bool {
+    func dequeue_code(_ code : String ){
         
-        var result = Bool()
-        for item in listofcode2{
-            for (datakey,datavalue) in item {
-                if datakey == "isUsed"{
-                    result = !(datavalue as! Bool )
-                }
+        let ref = Database.database().reference(withPath: "Code").child(code)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists(){
+                self.listofcode = Code.init(snapshot: snapshot)!
+                return
             }
-        }
-        return result
+
+        })
+            
     }
     
-    // Print Code
-    func printcode(){
-        print("printcoderun")
-        for item in listofcode2{
-            for (datakey,datavalue) in item {
-                    print(datakey)
-                    print(datavalue)
-            }
-        }
-    }
+    // @Confirm_button
+    func confirm_action(){
+        
+        
+        // If all field is filled
+        if !( (firstname_uitext.text?.isEmpty)! || (lastname_uitext.text?.isEmpty)! || (mobile_uitext.text?.isEmpty)! || (Code_UItext.text?.isEmpty)!) {
+            
+            let user_email : String = curruser!.email!
+            let first_name : String = firstname_uitext.text!
+            let last_name : String = lastname_uitext.text!
+            let phonenumber : String = mobile_uitext.text!
+            let user_uid : String = (curruser?.uid)!
+            
+            let employee = ["UID": user_uid,
+                            "Email": user_email ,
+                            "First_Name": first_name,
+                            "Last_Name": last_name ,
+                            "Phone_Number": phonenumber,
+                            "Privilage": "Staff" ]
+            
+            let code : String = Code_UItext.text!
+            
+            self.dequeue_code(code)
+            
+            let blurEffect = UIBlurEffect(style: .dark )
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.view.frame
+            
+            self.sampleindicator.startAnimating()
+            self.view.insertSubview(blurEffectView, at: 0)
+            self.view.addSubview(self.sampleindicator)
+            
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                
+                self.sampleindicator.stopAnimating()
+                self.view.subviews[0].removeFromSuperview()
+                UIApplication.shared.endIgnoringInteractionEvents()
 
-    func code_type() -> String {
-        for item in listofcode2{
+                if ( self.listofcode.get_validation() ) {
+                    
+                    let curr_code_type : String = self.listofcode.get_CompPermit()
+                    
+                    // If code is Staff / Manager
+                    if( curr_code_type == "Staff" || curr_code_type == "Manager") {
+                        
+                        // Register Employee Information
+                        let ref = Database.database().reference().child("System_User")
+                        let flagoff = Database.database().reference().child("Code")
+                        
+                        let employee = Employee(user_uid, user_email ,first_name, last_name, phonenumber,
+                        self.listofcode.get_CID() , self.listofcode.get_CompName() , curr_code_type )
 
-            for (datakey,datavalue) in item {
-                if datakey == "Code_Type" {
-                    return datavalue as! String
+                        ref.child(user_uid).setValue(employee.convert_to_list())
+                        flagoff.child(self.Code_UItext.text!).child("isUsed").setValue(true)
+                        let sb = UIStoryboard( name : "MainController" , bundle : nil)
+                        let vc = sb.instantiateViewController(withIdentifier: "Home")  as! UITabBarController
+                        vc.selectedIndex = 0
+                        self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                        
+                    // If code is SuperAdmin / Admin
+                    else if ( curr_code_type == "SuperAdmin" ||
+                              curr_code_type == "Admin" ) {
+                        
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Welcome_host") as! Welcome_host
+                        vc.employee = employee
+                        vc.code = self.Code_UItext.text!
+                        self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                        
+                    // Codetype is not any of above
+                    else {
+                        
+                        // Alert
+                        let alertController = UIAlertController(title: "", message: "The code enter is invalid.", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    
                 }
-            }}
-        return ""
-    }
-    
-    func code_company() -> String {
-        for item in listofcode2{
-
-        for (datakey,datavalue) in item {
-            if datakey == "Company" {
-                return datavalue as! String
+                
+                // Code is invalid
+                else{
+                    let alertController = UIAlertController(title: "", message: "The code enter is expired.", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
-            }}
-        return ""
-    }
+            
+        // If any of field is not filled
+        } else {
+            
+            let alertController = UIAlertController(title: "", message: "Please fill up all the information.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+    } // END FUNC
+
+
 }
 

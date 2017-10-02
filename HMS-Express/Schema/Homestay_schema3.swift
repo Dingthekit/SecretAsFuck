@@ -1,16 +1,16 @@
 //
-//  Homestay_page3_schema.swift
+//  Homestay_schema3.swift
 //  HMS-Express
 //
-//  Created by Ding Zhan Chia on 24/09/2017.
+//  Created by Ding Zhan Chia on 30/09/2017.
 //  Copyright © 2017 Ding Zhan Chia. All rights reserved.
 //
 
-
+import Foundation
 import UIKit
 import Firebase
 
-internal class Homestay_page3 : NSObject, NSCopying {
+internal class Homestay_schema3 : NSObject, NSCopying {
     
     // Variable
     var tv: Bool
@@ -59,7 +59,7 @@ internal class Homestay_page3 : NSObject, NSCopying {
         guard let oven = dict["oven"] else { return nil }
         guard let washing = dict["washing"] else { return nil }
         guard let dryer = dict["dryer"] else { return nil }
-
+        
         
         self.tv = tv
         self.wifi = wifi
@@ -76,9 +76,23 @@ internal class Homestay_page3 : NSObject, NSCopying {
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Homestay_page3(tv: tv, wifi: wifi, shampoo: shampoo , aircond : aircond, hairdryer : hairdryer, iron : iron , fridge : fridge , microwave : microwave, oven : oven ,washing : washing, dryer :dryer  )
+        let copy = Homestay_schema3(tv: tv, wifi: wifi, shampoo: shampoo , aircond : aircond, hairdryer : hairdryer, iron : iron , fridge : fridge , microwave : microwave, oven : oven ,washing : washing, dryer :dryer  )
         return copy
     }
+    
+    public func convert_to_list() -> [String : Bool]{
+        return ["TV" : self.tv ,
+                "WIFI" : self.wifi ,
+                "Shampoo" : self.aircond,
+                "Hairdryer" : self.hairdryer ,
+                "Iron" : self.iron,
+                "Fridge" : self.fridge ,
+                "Microwave" : self.microwave,
+                "Oven" : self.oven ,
+                "Washing" : self.washing,
+                "Dryer" : self.dryer ]
+    }
+    
     
 }
 

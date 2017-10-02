@@ -10,7 +10,7 @@
 import UIKit
 import Firebase
 
-private class Customer: NSObject {
+public class Customer: NSObject {
     
     var email: String
     var first_name: String
@@ -48,6 +48,13 @@ private class Customer: NSObject {
     public func copy(with zone: NSZone? = nil) -> Any {
         let copy = Customer(email: email, first_name: first_name, last_name: last_name , phonenumber:phonenumber)
         return copy
+    }
+    
+    public func convert_to_list() -> [String : String] {
+        return ["email" : self.email ,
+                "first_name" : self.first_name ,
+                "last_name" : self.last_name ,
+                "phonenumber" : self.phonenumber ]
     }
 }
 

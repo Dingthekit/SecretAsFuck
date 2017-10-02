@@ -11,7 +11,12 @@ import Firebase
 import FirebaseDatabase
 
 class profile: UITableViewController {
- 
+    
+    // variable
+    var postRef: DatabaseReference!
+    private let ref = Database.database().reference(withPath: "System_User")
+    private var curruser = Employee()
+    
     // IBOutlet
     @IBOutlet var company_label : UILabel!
     @IBOutlet var first_name_label : UILabel!
@@ -33,12 +38,6 @@ class profile: UITableViewController {
         }
     }
 
-    
-    // variable
-    var postRef: DatabaseReference!
-    let ref = Database.database().reference(withPath: "System_user")
-    private var curruser : Employee = Employee.init()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,27 +53,21 @@ class profile: UITableViewController {
     
     // Function: start_queue -> Void
     func start_queue(){
-        let ref = Database.database().reference(withPath: "System_user")
+        
         let uid : String = (Auth.auth().currentUser?.uid)!
-
-        ref.observe(.value, with: { snapshot in
-            
-            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                
-                for snap in snapshots {
-                    if snap.key == uid{
-                        let employee : Employee = Employee.init( snapshot : snap)!
-                        self.curruser = employee
-
-                        self.first_name_label.text = employee.first_name
-                        self.last_name_label.text = employee.last_name
-                        self.email_label.text = employee.email
-                        self.mobile_label.text = employee.phonenumber
-                        break
-                    }
-                }
+        ref.child(uid).observe(.value, with: { snapshot in
+        print(snapshot)
+            if snapshot.exists(){
+                self.curruser = Employee.init(snapshot: snapshot)!
+                self.company_label.text =  self.curruser.get_CompName()
+                self.email_label.text = self.curruser.get_email()
+                self.first_name_label.text = self.curruser.get_firstname()
+                self.last_name_label.text = self.curruser.get_lastname()
+                self.mobile_label.text = self.curruser.get_phone()
+                return
             }
         })
+ 
     }
 
 }

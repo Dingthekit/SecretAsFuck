@@ -11,12 +11,12 @@ import UIKit
 class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerViewDataSource, UITextFieldDelegate  {
 
     // Variable
-    var homestay_info_1 = Homestay_page1() ;
-    var homestay_info_2 = Homestay_page2() ;
-    var homestay_info_3 = Homestay_page3() ;
+    var homestay_info_1 = Homestay_schema1() ;
+    var homestay_info_2 = Homestay_schema2() ;
+    var homestay_info_3 = Homestay_schema3() ;
 
     // Picker Variable
-    private var no_pax  = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
+    private var no_pax  = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
     var no_pax_picker = UIPickerView()
     
     // IBOutlet
@@ -31,23 +31,22 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
     @IBAction func back_button(_ sender: AnyObject) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page1") as! Homestay_info_page1
 
-        homestay_info_2 =  Homestay_page2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
+        homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
         
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_page1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_page2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_page3
+        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
 
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func next_button(_ sender: AnyObject) {
         
-        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page3") as! Homestay_info_page3
-        homestay_info_2 =  Homestay_page2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_page1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_page2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_page3
+        homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
+        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
         self.present(vc, animated: true, completion: nil)
     }
     

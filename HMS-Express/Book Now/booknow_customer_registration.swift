@@ -7,22 +7,35 @@
 //
 
 import UIKit
+import Firebase
 
 class booknow_customer_registration: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var name_uitext: UITextField!
-    @IBOutlet var gender_uitext: UITextField!
+    @IBOutlet var firstname_uitext: UITextField!
+    @IBOutlet var lastname_uitext: UITextField!
     @IBOutlet var email_uitext: UITextField!
     @IBOutlet var contact_uitext: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name_uitext.delegate = self
-        gender_uitext.delegate = self
-        email_uitext.delegate = self
-        contact_uitext.delegate = self
+        
+        // Dismiss Keyboard
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
     }
 
+    @IBAction func next_button(_ sender: UIButton) {
+        
+        let key = Database.database().reference(withPath: "Customer").childByAutoId().key
+        let ref = Database.database().reference(withPath: "Customer")
+        
+        var customer_info = Customer.init(email: self.firstname_uitext.text! , first_name: self.lastname_uitext.text! , last_name: self.email_uitext.text! , phonenumber: self.contact_uitext.text! )
+        
+        ref.child(key).setValue(customer_info.convert_to_list())
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,8 +47,10 @@ class booknow_customer_registration: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func cancelPressed(){
-        view.endEditing(true) // or do something
+
+    // Dismiss Keyboard
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
     }
 
 }
