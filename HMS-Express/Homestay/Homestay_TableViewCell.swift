@@ -16,6 +16,8 @@ class Homestay_TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        //Comment
+        
         // Initialization code
     }
 
