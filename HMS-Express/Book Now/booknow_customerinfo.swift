@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableViewDelegate, UITableViewDataSource {
+class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 
     // Variable
     fileprivate var total_user = [Customer]()
@@ -19,6 +19,15 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
 
     // IBOutlet
     @IBOutlet var user_table: UITableView!
+    @IBOutlet weak var back_button: UIButton!
+    @IBOutlet weak var next_button: UIButton!
+    @IBOutlet weak var register_button: UIButton!
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //searchController.dismiss(animated: false, completion: nil)
+        searchController.isActive = false
+    }
+    
     let searchController = UISearchController(searchResultsController: nil)
     override func viewDidLoad() {
         
@@ -27,6 +36,7 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         user_table.tableHeaderView = searchController.searchBar
+        self.searchController.searchBar.delegate = self
         definesPresentationContext = true
 
         
@@ -39,9 +49,6 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        searchController.dismiss(animated: false, completion: nil)
-        searchController.viewWillDisappear(true)
     }
     
     // MARK : UISearch Protocol
@@ -55,6 +62,7 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        
         filter_user = total_user.filter({( user : Customer) -> Bool in
             return user.full_name.lowercased().contains(searchText.lowercased())
         })
@@ -63,7 +71,6 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
     }
     
     // MARK : Table Protocol
-    
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
@@ -79,9 +86,7 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customer_cell", for: indexPath) as! Customer_cell
-        
         var name = String()
-        
         if isFiltering(){
             name = filter_user[indexPath.row].get_fullname()
         } else {
@@ -90,6 +95,15 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
         
         cell.name.text = name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let customer : Customer = curruser[indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Booking_confirm") as! booknow_confirmation
+        vc.customer = customer.copy() as Customer
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     func dequeueHomestay() {

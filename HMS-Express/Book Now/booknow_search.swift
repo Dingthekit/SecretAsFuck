@@ -18,13 +18,15 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
     // IBOutlet
     @IBOutlet weak var Homestay_Segmented: UISegmentedControl!
     @IBOutlet weak var HomestayTable: UITableView!
-    
-    @IBAction func confirm_button(_ sender: AnyObject) {
+
+    // IBAction
+    @IBAction func back_button(_ sender: AnyObject) {
         let sb = UIStoryboard( name : "MainController", bundle : nil )
         let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
         vc.selectedIndex = 0
         self.present(vc, animated: true, completion: nil)
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +55,21 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
         var curr_home: Homestay_schema1
         curr_home = listofhomestay[indexPath.row]
         cell.homestay_label.text = curr_home.get_name()
-        cell.price_label.text = curr_home.get_Location()
         
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let homestay_item : Homestay_schema1 = listofhomestay[indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Booknow_search_info") as! Booknow_search_info
+        vc.homestay = homestay_item.copy() as! Homestay_schema1
+        self.present(vc, animated: true, completion: nil)
+
+    }
+
+
     
     func dequeueHomestay() {
         //observing the data changes
@@ -88,6 +100,7 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 //reloading the TableViewCell
+                
                 self.HomestayTable.reloadData()
             }
         })
@@ -97,12 +110,14 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
     func start_queue(){
         let ref = Database.database().reference(withPath: "System_User")
         let uid : String = (Auth.auth().currentUser?.uid)!
-        
+
         ref.child(uid).observe(.value, with: { snapshot in
             if snapshot.exists(){
                 self.curruser = Employee.init(snapshot: snapshot)!
             }
         })
     }
+    
+    
 
 }

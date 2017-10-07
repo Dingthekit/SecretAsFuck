@@ -15,6 +15,7 @@
 		0B4B18991F779D2A00BC4B2D /* pax_picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B18981F779D2A00BC4B2D /* pax_picker.swift */; };
 		0B4B189B1F77A0FA00BC4B2D /* Homestay_schema2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B189A1F77A0FA00BC4B2D /* Homestay_schema2.swift */; };
 		0B5C70261F7DDFDB0019BE26 /* indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5C70251F7DDFDB0019BE26 /* indicator.swift */; };
+		0B647BB61F88D4A800ADE4E7 /* Booknow_search_info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */; };
 		0B697A721F7F92C90049CAA8 /* Homestay_schema3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B697A711F7F92C90049CAA8 /* Homestay_schema3.swift */; };
 		0B697A741F7F95C90049CAA8 /* Code_Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B697A731F7F95C90049CAA8 /* Code_Schema.swift */; };
 		0B795B371F7596CF00252B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B361F7596CF00252B9F /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		0B4B18981F779D2A00BC4B2D /* pax_picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pax_picker.swift; sourceTree = "<group>"; };
 		0B4B189A1F77A0FA00BC4B2D /* Homestay_schema2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_schema2.swift; sourceTree = "<group>"; };
 		0B5C70251F7DDFDB0019BE26 /* indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = indicator.swift; sourceTree = "<group>"; };
+		0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booknow_search_info.swift; sourceTree = "<group>"; };
 		0B697A711F7F92C90049CAA8 /* Homestay_schema3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_schema3.swift; sourceTree = "<group>"; };
 		0B697A731F7F95C90049CAA8 /* Code_Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code_Schema.swift; sourceTree = "<group>"; };
 		0B795B331F7596CF00252B9F /* HMS-Express.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Express.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +261,7 @@
 			children = (
 				0B795B891F75996300252B9F /* Booknow_register_customer.swift */,
 				0B795B871F75996200252B9F /* Booknow_main.swift */,
+				0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */,
 				0B795B881F75996200252B9F /* Booknow_search.swift */,
 				0B795B8A1F75996300252B9F /* Booknow_customerinfo.swift */,
 				0B795B531F75972000252B9F /* Booknow_confirmation.swift */,
@@ -459,6 +462,7 @@
 				0B795B6A1F75973500252B9F /* Customer_schema.swift in Sources */,
 				0BB2A1C31F873B3700310465 /* Booknow_cell.swift in Sources */,
 				0B795B581F75972000252B9F /* Booknow_confirmation.swift in Sources */,
+				0B647BB61F88D4A800ADE4E7 /* Booknow_search_info.swift in Sources */,
 				0BAFD4A41F7F62A900B38751 /* Homestay_TableViewCell.swift in Sources */,
 				0B1FC73C1F83F78F00F9C986 /* FromRight.swift in Sources */,
 				0B795B751F75974500252B9F /* Homestay_info_page1.swift in Sources */,

@@ -50,7 +50,6 @@ public class Customer: NSObject {
         
     }
     
-    
     public func copy(with zone: NSZone? = nil) -> Any {
         let copy = Customer( first_name: first_name, last_name: last_name ,full_name : full_name, phonenumber:phonenumber, email: email)
         return copy

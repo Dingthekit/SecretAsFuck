@@ -22,7 +22,7 @@ class booknow_customer_registration: UIViewController, UITextFieldDelegate {
     @IBOutlet var contact_uitext: UITextField!
     
     // IBAction
-    @IBAction func next_button(_ sender: UIButton) {
+    @IBAction func next_button(_ sender: Any) {
         
         let CID : String = self.curruser.get_CID()
         let key = Database.database().reference().child("Customer").child(CID).childByAutoId().key
