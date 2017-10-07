@@ -11,14 +11,18 @@ import Firebase
 
 class Welcome_host: UIViewController {
 
+    // Variable
     var employee = [ String : String ]()
-    var data = [String : Any]()
+    fileprivate var data = [String : Any]()
     var code = String()
-    private var info_employee = [ String ]()
+    fileprivate var info_employee = [ String ]()
 
     
+    // IBOutlet
     @IBOutlet var Companyname_UItext: UITextField!
-    
+
+  
+    // IBAction
     @IBAction func confirm_button(_ sender: AnyObject) {
         
         let company_name : String = Companyname_UItext.text!
@@ -126,7 +130,7 @@ class Welcome_host: UIViewController {
 
     }
     
-    // Dequeue All Code
+    // dequeue_Company : string -> void
     func dequeue_Company( _ code : String ){
         let ref = Database.database().reference(withPath: "Company")
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -138,9 +142,10 @@ class Welcome_host: UIViewController {
                     }
                 }
             }
-        }) // ref loop
+        })
     }
     
+    // isFound_Company : string -> Bool
     func isFound_Company( _ Comp_name : String ) -> Bool {
         for (datakey,datavalue) in self.data {
             if datakey == "Name" && ( (datavalue as! String) == Comp_name ){

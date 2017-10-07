@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerViewDataSource, UITextFieldDelegate  {
+class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerViewDataSource, UITextFieldDelegate   {
 
     // Variable
     var homestay_info_1 = Homestay_schema1() ;
@@ -17,6 +17,7 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
 
     // Picker Variable
     private var no_pax  = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
+    private var washroom_pax  = ["0","1","1.5","2","2.5","3","3.5","4", "4.5","5","5.5"]
     var no_pax_picker = UIPickerView()
     
     // IBOutlet
@@ -26,34 +27,35 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
     @IBOutlet var king_bed: UITextField!
     @IBOutlet var queen_bed: UITextField!
     @IBOutlet var single_bed: UITextField!
-    
-    
-    @IBAction func back_button(_ sender: AnyObject) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page1") as! Homestay_info_page1
 
-        homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
-        
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
-
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    @IBAction func next_button(_ sender: AnyObject) {
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page3") as! Homestay_info_page3
-        homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
-        self.present(vc, animated: true, completion: nil)
+    // Prepare Segue
+    // 1. next_3
+    // 2. back_1
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "next_3" {
+            
+            let vc = segue.destination as! Homestay_info_page3
+            homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
+            vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+            vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+            vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
+            
+        } else if segue.identifier == "back_1" {
+            
+            let vc = segue.destination as! Homestay_info_page1
+            
+            homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
+            
+            vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+            vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+            vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
+            
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // print(homestay_info_1.name)
+
         // Delegate
         capacity_homestay.delegate = self
         capacity_bedroom.delegate = self
@@ -62,8 +64,8 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         queen_bed.delegate = self
         single_bed.delegate = self
         
+        // Set default value of the UItext
         defaultvalue()
-        
         
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
@@ -86,32 +88,48 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return no_pax.count
+        if capacity_bathroom.isFirstResponder{
+            return washroom_pax.count
+        } else {
+            return no_pax.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,forComponent component: Int) -> String? {
-        return no_pax[row]
+        if capacity_bathroom.isFirstResponder{
+            return washroom_pax[row]
+        } else {
+            return no_pax[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int,inComponent component: Int) {
         if capacity_homestay.isFirstResponder{
             capacity_homestay.text = no_pax[row]
-            
+            no_pax_picker.reloadAllComponents();
+
         } else if capacity_bedroom.isFirstResponder{
             capacity_bedroom.text = no_pax[row]
-            
+            no_pax_picker.reloadAllComponents();
+
         } else if capacity_bathroom.isFirstResponder{
-            capacity_bathroom.text = no_pax[row]
-            
+            capacity_bathroom.text = washroom_pax[row]
+            no_pax_picker.reloadAllComponents();
+
         } else if king_bed.isFirstResponder{
             king_bed.text = no_pax[row]
-            
+            no_pax_picker.reloadAllComponents();
+
         } else if queen_bed.isFirstResponder{
             queen_bed.text = no_pax[row]
-            
+            no_pax_picker.reloadAllComponents();
+
         } else if single_bed.isFirstResponder{
             single_bed.text = no_pax[row]
+            no_pax_picker.reloadAllComponents();
+
         }
+        
     }
     
     func pickUp(_ textField : UITextField){
@@ -119,7 +137,8 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         // Number of pax
         self.no_pax_picker.delegate = self
         self.no_pax_picker.dataSource = self
-        
+        self.no_pax_picker.reloadAllComponents();
+
         // Toolbar
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -138,8 +157,6 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         textField.inputAccessoryView = toolBar
         textField.inputView = no_pax_picker
     }
-    
-    
     
     
     // BeginEdit
@@ -162,6 +179,7 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         } else if single_bed.isFirstResponder{
             single_bed.endEditing(true)
         }
+        self.no_pax_picker.reloadAllComponents()
     }
     
     // CancelButton

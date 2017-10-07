@@ -12,20 +12,25 @@ import FirebaseAuth
 
 class sign_up: UIViewController,UITextFieldDelegate {
 
+    // IBOutlet
     @IBOutlet var email_uitext: UITextField!
     @IBOutlet var password_uitext: UITextField!
     @IBOutlet var repassword_uitext: UITextField!
     @IBAction func Confirm_Signup(_ sender: AnyObject) {
         
+        // UItextfield is blank
         if( (email_uitext.text?.isEmpty)! && (password_uitext.text?.isEmpty)! && (repassword_uitext.text?.isEmpty)! ){
-            let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: "Please enter your email or password", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             
             present(alertController, animated: true, completion: nil)
-            
-        } else if ( password_uitext.text != repassword_uitext.text ){
+    
+        }
+        
+        // Password Doesn't Match
+        else if ( password_uitext.text != repassword_uitext.text ){
             let alertController = UIAlertController(title: "Error", message: "Password Does not match", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -33,13 +38,14 @@ class sign_up: UIViewController,UITextFieldDelegate {
             
             present(alertController, animated: true, completion: nil)
             
-        } else {
+        }
+        
+        // Register
+        else {
             Auth.auth().createUser(withEmail: email_uitext.text!, password: password_uitext.text!) { (user, error) in
                 
                 if error == nil {
                     print("You have successfully signed up")
-                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
-                    
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                     self.present(vc!, animated: true, completion: nil)
                     
@@ -60,7 +66,9 @@ class sign_up: UIViewController,UITextFieldDelegate {
         self.present(vc!, animated: true, completion: nil)
     }
     
+    // ViewDidLoad
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Delegate
@@ -74,12 +82,6 @@ class sign_up: UIViewController,UITextFieldDelegate {
     
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     // Keyboard return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -89,6 +91,10 @@ class sign_up: UIViewController,UITextFieldDelegate {
     // Dismiss Keyboard
     @objc func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
 }

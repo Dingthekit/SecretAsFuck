@@ -15,13 +15,13 @@ import NVActivityIndicatorView
 class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable{
     
     // Variable
-    var ref: DatabaseReference!
-    var employees : [Employee] = []
-    private var isUserFound_bool = Bool()
-    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    var sampleindicator : NVActivityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: UIScreen.main.bounds.size.width * 0.5 - 25 , y: UIScreen.main.bounds.size.height * 0.5 - 25, width: 50, height: 50), type: .ballRotateChase , color: UIColor.black , padding: CGFloat(0))
+    fileprivate var ref: DatabaseReference!
+    fileprivate var employees : [Employee] = []
+    fileprivate var isUserFound_bool = Bool()
+    fileprivate var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    fileprivate var sampleindicator : NVActivityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: UIScreen.main.bounds.size.width * 0.5 - 25 , y: UIScreen.main.bounds.size.height * 0.5 - 25, width: 50, height: 50), type: .ballRotateChase , color: UIColor.black , padding: CGFloat(0))
     
-    // OBoutlet
+    // OBOutlet
     @IBOutlet var email_uitext: UITextField!
     @IBOutlet var password_uitext: UITextField!
     
@@ -40,6 +40,8 @@ class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        
     }
     
     // Keyboard Delegate
@@ -83,6 +85,7 @@ class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable
                 self.view.insertSubview(blurEffectView, at: 0)
                 self.view.addSubview(self.sampleindicator)
                 
+                
                 UIApplication.shared.beginIgnoringInteractionEvents()
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
@@ -96,18 +99,19 @@ class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable
                         if ( self.isUserFound() ){
                             let sb = UIStoryboard ( name : "MainController" , bundle : nil)
                             let vc = sb.instantiateViewController(withIdentifier: "Home")
+                            vc.modalTransitionStyle = .flipHorizontal
                             self.present(vc, animated: true, completion: nil)
 
                         }else {
                             let sb = UIStoryboard( name : "Welcome" , bundle : nil)
                             let vc = sb.instantiateViewController(withIdentifier: "Welcome_main")
+                            vc.modalTransitionStyle = .flipHorizontal
                             self.present(vc, animated: true, completion: nil)
                         }
-                    } // if statement
+                    }
                         
                     else {
                         
-                        // Get the login Error
                         let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
                         self.present(alert, animated: true, completion: nil)
@@ -115,12 +119,12 @@ class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable
                     }
                 }
 
-            } // Login
-        } // if
+            }
+        }
     } // END FUNC
     
     
-    func register_code(){
+    private func register_code(){
         let ref = Database.database().reference(withPath: "Code")
         let item : [ String : Any] = [ "CID" : "012893978123",
                                        "Code_Number" : "12345",

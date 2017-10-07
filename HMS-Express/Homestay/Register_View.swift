@@ -17,7 +17,7 @@ class Register_View: UIPageViewController, UIPageViewControllerDelegate, UIPageV
         let vc1 = sb.instantiateViewController(withIdentifier: "homestay_info_page1")
         let vc2 = sb.instantiateViewController(withIdentifier: "homestay_info_page2")
         let vc3 = sb.instantiateViewController(withIdentifier: "homestay_info_page3")
-
+ 
         return [ vc1 , vc2 , vc3 ]
     }()
     

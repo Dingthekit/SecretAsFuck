@@ -94,7 +94,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="mS8-h3-AxR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Booking" id="6ts-Un-QbV"/>
+                    <tabBarItem key="tabBarItem" title="Booking" selectedImage="booknowTab" id="6ts-Un-QbV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5c-lh-rdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,7 +277,7 @@
                             <outlet property="delegate" destination="lEk-wV-her" id="2Iu-nH-vnm"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Profile" id="hez-Ch-2s1"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="homestayTab" id="hez-Ch-2s1"/>
                     <connections>
                         <outlet property="company_label" destination="tXs-mf-fJl" id="VqO-VA-z7A"/>
                         <outlet property="email_label" destination="42k-8C-Fxj" id="4x4-wk-UDo"/>

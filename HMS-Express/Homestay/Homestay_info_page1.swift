@@ -27,31 +27,32 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
     @IBOutlet var City: UITextField!
     @IBOutlet var State: UITextField!
     @IBOutlet var Type_Homestay : UITextField!
-    
-    // IBAction
-    @IBAction func back_button(_ sender: AnyObject) {
+ 
+    // Prepare Segue
+    // 1. next_2
+    // 2. back_2
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // Navigate to the next item
-        let sb = UIStoryboard( name : "MainController", bundle : nil )
-        let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
-        vc.selectedIndex = 1
-        self.present(vc, animated: true, completion: nil)
+        if segue.identifier == "next_2" {
+            
+            homestay_info_1 =  Homestay_schema1.init( name: Name.text! , address1: Address_1.text! , address2: Address_2.text!, postalcode: Postal_code.text! , city: City.text! , state: State.text! , typeofhomestay: Type_Homestay.text! )
+            
+            let vc = segue.destination as! Homestay_info_page2
+            
+            vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+            vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+            vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
+            
+        } else if segue.identifier == "back_main" {
+            
+            // Navigate to the next item
+            let sb = UIStoryboard( name : "MainController", bundle : nil )
+            let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
+            vc.selectedIndex = 1
+            self.present(vc, animated: true, completion: nil)
+            
+        }
     }
-    
-    
-    @IBAction func next_button(_ sender: AnyObject) {
-        
-        homestay_info_1 =  Homestay_schema1.init( name: Name.text! , address1: Address_1.text! , address2: Address_2.text!, postalcode: Postal_code.text! , city: City.text! , state: State.text! , typeofhomestay: Type_Homestay.text! )
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page2") as! Homestay_info_page2
-
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
-        
-        self.present(vc, animated: true, completion: nil)
-    }
-    
 
     
     override func viewDidLoad() {

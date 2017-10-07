@@ -80,9 +80,7 @@ class Homestay_main: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let ref_Homestay = Database.database().reference().child("Homestay").child(self.curruser.get_CID());
 
         ref_Homestay.observe(DataEventType.value, with: { (snapshot) in
-            
-            let homestay = Homestay_schema1()
-            
+                        
             //if the reference have some values
             if snapshot.childrenCount > 0 {
                 
@@ -113,7 +111,6 @@ class Homestay_main: UIViewController, UITableViewDelegate, UITableViewDataSourc
         ref.child(uid).observe(.value, with: { snapshot in
             if snapshot.exists(){
                 self.curruser = Employee.init(snapshot: snapshot)!
-                print("GOT IT: " + self.curruser.get_CID())
             }
         })
     }

@@ -16,11 +16,11 @@ import NVActivityIndicatorView
 class Welcome_main: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable{
     
     // Variable
-    private var ref: DatabaseReference!
-    private let curruser = Auth.auth().currentUser
-    private var listofcode = Code()
+    fileprivate var ref: DatabaseReference!
+    fileprivate let curruser = Auth.auth().currentUser
+    fileprivate var listofcode = Code()
+    fileprivate var sampleindicator : NVActivityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: UIScreen.main.bounds.size.width * 0.5 - 25 , y: UIScreen.main.bounds.size.height * 0.5 - 25, width: 50, height: 50), type: .ballRotateChase , color: UIColor.black , padding: CGFloat(0))
     
-    private var sampleindicator : NVActivityIndicatorView = NVActivityIndicatorView(frame:  CGRect(x: UIScreen.main.bounds.size.width * 0.5 - 25 , y: UIScreen.main.bounds.size.height * 0.5 - 25, width: 50, height: 50), type: .ballRotateChase , color: UIColor.black , padding: CGFloat(0))
     
     // IBOutlet
     @IBOutlet var firstname_uitext: UITextField!
@@ -28,6 +28,7 @@ class Welcome_main: UIViewController, UITextFieldDelegate, NVActivityIndicatorVi
     @IBOutlet var mobile_uitext: UITextField!
     @IBOutlet var Code_UItext: UITextField!
 
+    
     // IBAction
     @IBAction func confirm_button(_ sender: AnyObject) {
         confirm_action()
@@ -53,11 +54,6 @@ class Welcome_main: UIViewController, UITextFieldDelegate, NVActivityIndicatorVi
         view.addGestureRecognizer(tap)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
     // Keyboard return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -78,10 +74,8 @@ class Welcome_main: UIViewController, UITextFieldDelegate, NVActivityIndicatorVi
             if snapshot.exists(){
                 self.listofcode = Code.init(snapshot: snapshot)!
                 return
-            }
-
-        })
-            
+                
+            }})
     }
     
     // @Confirm_button
@@ -188,8 +182,12 @@ class Welcome_main: UIViewController, UITextFieldDelegate, NVActivityIndicatorVi
             self.present(alertController, animated: true, completion: nil)
             
         }
-    } // END FUNC
+    } // End Function
 
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
 }
 

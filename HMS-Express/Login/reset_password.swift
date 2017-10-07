@@ -12,7 +12,10 @@ import FirebaseAuth
 
 class reset_password: UIViewController, UITextFieldDelegate {
 
+    // IBOutlet
     @IBOutlet var email_uitext: UITextField!
+    
+    // IBAction
     @IBAction func submitAction(_ sender: AnyObject) {
         
         if (self.email_uitext.text?.isEmpty)! {
@@ -60,20 +63,14 @@ class reset_password: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        // Delegate
+        super.viewDidLoad()
         email_uitext.delegate = self
         
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     
     // Keyboard return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -85,5 +82,10 @@ class reset_password: UIViewController, UITextFieldDelegate {
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 
 }

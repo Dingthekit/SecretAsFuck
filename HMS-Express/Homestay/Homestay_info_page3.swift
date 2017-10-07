@@ -31,19 +31,20 @@ class Homestay_info_page3: UIViewController {
     @IBOutlet var WashingMachine: ToggleButton!
     @IBOutlet var Dryer: ToggleButton!
     
-    // IBAction
-    // Confirm_Button
-    // Version 1.0
-    @IBAction func back_button(_ sender: AnyObject) {
+    // Prepare Segue
+    // 1. Back_2
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page2") as! Homestay_info_page2
-        
-        homestay_info_3 = Homestay_schema3( tv: TV.isOn, wifi: WirelessInternet.isOn,shampoo: Shampoo.isOn,aircond: AirCond.isOn,hairdryer: HairDryer.isOn,iron: Iron.isOn, fridge: Fridge.isOn , microwave: Microwave.isOn ,oven: Oven.isOn , washing: WashingMachine.isOn , dryer: Dryer.isOn)
-        vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
-        vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
-        vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
-        self.present(vc, animated: true, completion: nil)
-        
+        if segue.identifier == "back_2" {
+            
+            let vc = segue.destination as!  Homestay_info_page2
+            
+            homestay_info_3 = Homestay_schema3( tv: TV.isOn, wifi: WirelessInternet.isOn,shampoo: Shampoo.isOn,aircond: AirCond.isOn,hairdryer: HairDryer.isOn,iron: Iron.isOn, fridge: Fridge.isOn , microwave: Microwave.isOn ,oven: Oven.isOn , washing: WashingMachine.isOn , dryer: Dryer.isOn)
+            vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
+            vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
+            vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
+            
+        }
     }
     
     // IBAction
