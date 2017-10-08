@@ -99,9 +99,9 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let customer : Customer = curruser[indexPath.row]
+       // let customer : Customer = total_user[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Booking_confirm") as! booknow_confirmation
-        vc.customer = customer.copy() as Customer
+        //vc.customer = customer.copy() as Customer
         self.present(vc, animated: true, completion: nil)
         
     }

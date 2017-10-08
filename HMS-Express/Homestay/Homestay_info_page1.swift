@@ -61,8 +61,15 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
         //self.Name.delegate = self
         defaultvalue()
         
-        // PageControl
-        configurePageControl(0)
+        // Use underline
+        Name.useUnderLine()
+        Address_1.useUnderLine()
+        Address_2.useUnderLine()
+        Postal_code.useUnderLine()
+        City.useUnderLine()
+        State.useUnderLine()
+        Type_Homestay.useUnderLine()
+        
         
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
@@ -79,16 +86,6 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    // Page Control
-    func configurePageControl( _ CurrPage : Int) {
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
-        self.pageControl.numberOfPages = 3
-        self.pageControl.currentPage = CurrPage
-        self.pageControl.tintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.gray
-        self.pageControl.currentPageIndicatorTintColor = UIColor.black
-        self.view.addSubview(pageControl)
-    }
 
     func defaultvalue(){
         
@@ -116,3 +113,4 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
         }
     }
 }
+

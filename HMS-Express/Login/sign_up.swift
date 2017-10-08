@@ -76,6 +76,11 @@ class sign_up: UIViewController,UITextFieldDelegate {
         password_uitext.delegate = self
         repassword_uitext.delegate = self
 
+        // Draw Line
+        email_uitext.useUnderLine()
+        password_uitext.useUnderLine()
+        repassword_uitext.useUnderLine()
+        
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -98,3 +103,5 @@ class sign_up: UIViewController,UITextFieldDelegate {
     }
 
 }
+
+

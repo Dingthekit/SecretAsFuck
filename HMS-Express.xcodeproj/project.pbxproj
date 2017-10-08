@@ -18,8 +18,8 @@
 		0B647BB61F88D4A800ADE4E7 /* Booknow_search_info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */; };
 		0B697A721F7F92C90049CAA8 /* Homestay_schema3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B697A711F7F92C90049CAA8 /* Homestay_schema3.swift */; };
 		0B697A741F7F95C90049CAA8 /* Code_Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B697A731F7F95C90049CAA8 /* Code_Schema.swift */; };
+		0B76B0431F8A299A00BEF3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B0421F8A299000BEF3FD /* Assets.xcassets */; };
 		0B795B371F7596CF00252B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B361F7596CF00252B9F /* AppDelegate.swift */; };
-		0B795B3E1F7596CF00252B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B3D1F7596CF00252B9F /* Assets.xcassets */; };
 		0B795B411F7596CF00252B9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B3F1F7596CF00252B9F /* LaunchScreen.storyboard */; };
 		0B795B4D1F75971700252B9F /* Bookinglist_main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B4B1F75971600252B9F /* Bookinglist_main.swift */; };
 		0B795B4E1F75971700252B9F /* Bookinglist_detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B795B4C1F75971700252B9F /* Bookinglist_detail.swift */; };
@@ -70,9 +70,9 @@
 		0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booknow_search_info.swift; sourceTree = "<group>"; };
 		0B697A711F7F92C90049CAA8 /* Homestay_schema3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_schema3.swift; sourceTree = "<group>"; };
 		0B697A731F7F95C90049CAA8 /* Code_Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code_Schema.swift; sourceTree = "<group>"; };
+		0B76B0421F8A299000BEF3FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B795B331F7596CF00252B9F /* HMS-Express.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HMS-Express.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B795B361F7596CF00252B9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B795B3D1F7596CF00252B9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B795B401F7596CF00252B9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B795B421F7596CF00252B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B795B4B1F75971600252B9F /* Bookinglist_main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookinglist_main.swift; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 				0B795B801F75985E00252B9F /* Homestay */,
 				0B795B851F7598CA00252B9F /* HMStoggle */,
 				0B795B821F75988700252B9F /* Schema */,
-				0B795B3D1F7596CF00252B9F /* Assets.xcassets */,
 				0B795B991F759E7600252B9F /* Homestay.storyboard */,
 				0B795B9A1F759E9800252B9F /* MainController.storyboard */,
 				0B795B981F759E5F00252B9F /* Booknow.storyboard */,
@@ -186,6 +185,7 @@
 				0B795B901F759C1800252B9F /* GoogleService-Info.plist */,
 				0B795B421F7596CF00252B9F /* Info.plist */,
 				0BB2A1BE1F86692C00310465 /* backupfile.swift */,
+				0B76B0421F8A299000BEF3FD /* Assets.xcassets */,
 			);
 			path = "HMS-Express";
 			sourceTree = "<group>";
@@ -368,8 +368,8 @@
 				0B795B411F7596CF00252B9F /* LaunchScreen.storyboard in Resources */,
 				0B795B9C1F759EA400252B9F /* Homestay.storyboard in Resources */,
 				0B795B9D1F759EAB00252B9F /* Booknow.storyboard in Resources */,
-				0B795B3E1F7596CF00252B9F /* Assets.xcassets in Resources */,
 				0B795B9E1F759F8900252B9F /* GoogleService-Info.plist in Resources */,
+				0B76B0431F8A299A00BEF3FD /* Assets.xcassets in Resources */,
 				0B37CFC31F763F440050146B /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

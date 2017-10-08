@@ -37,6 +37,10 @@ class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable
         email_uitext.delegate = self
         password_uitext.delegate = self
         
+        // Underline
+        email_uitext.useUnderLine()
+        password_uitext.useUnderLine()
+        
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -160,4 +164,5 @@ class Login: UIViewController, UITextFieldDelegate , NVActivityIndicatorViewable
     }
     
 }
+
 

@@ -64,6 +64,14 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         queen_bed.delegate = self
         single_bed.delegate = self
         
+        
+        // Underline
+        capacity_homestay.useUnderLine()
+        capacity_bedroom.useUnderLine()
+        capacity_bathroom.useUnderLine()
+        king_bed.useUnderLine()
+        single_bed.useUnderLine()
+        
         // Set default value of the UItext
         defaultvalue()
         
@@ -223,3 +231,4 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
 
     }
 }
+
