@@ -28,28 +28,33 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
     @IBOutlet var State: UITextField!
     @IBOutlet var Type_Homestay : UITextField!
  
+    @IBAction func back_button(_ sender: Any) {
+        
+        // Navigate to the next item
+        let sb = UIStoryboard( name : "MainController", bundle : nil )
+        let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
+        vc.selectedIndex = 2
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     // Prepare Segue
-    // 1. next_2
-    // 2. back_2
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "next_2" {
             
-            homestay_info_1 =  Homestay_schema1.init( name: Name.text! , address1: Address_1.text! , address2: Address_2.text!, postalcode: Postal_code.text! , city: City.text! , state: State.text! , typeofhomestay: Type_Homestay.text! )
+            homestay_info_1.set_name(Name.text!)
+            homestay_info_1.set_add1(Address_1.text!)
+            homestay_info_1.set_add2(Address_2.text!)
+            homestay_info_1.set_pos(Postal_code.text!)
+            homestay_info_1.set_city(City.text!)
+            homestay_info_1.set_state(State.text!)
+            homestay_info_1.set_type(Type_Homestay.text!)
             
             let vc = segue.destination as! Homestay_info_page2
-            
             vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
             vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
             vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
-            
-        } else if segue.identifier == "back_main" {
-            
-            // Navigate to the next item
-            let sb = UIStoryboard( name : "MainController", bundle : nil )
-            let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
-            vc.selectedIndex = 1
-            self.present(vc, animated: true, completion: nil)
             
         }
     }
@@ -70,7 +75,6 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
         State.useUnderLine()
         Type_Homestay.useUnderLine()
         
-        
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -89,27 +93,27 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
 
     func defaultvalue(){
         
-        if !(homestay_info_1.name.isEmpty) {
-            Name.text = homestay_info_1.name
+        if !(homestay_info_1.get_name().isEmpty) {
+            Name.text = homestay_info_1.get_name()
         }
 
-        if !(homestay_info_1.address1.isEmpty) {
-            Address_1.text = homestay_info_1.address1
+        if !(homestay_info_1.get_add1().isEmpty) {
+            Address_1.text = homestay_info_1.get_add1()
         }
-        if !(homestay_info_1.address2.isEmpty) {
-            Address_2.text = homestay_info_1.address2
+        if !(homestay_info_1.get_add2().isEmpty) {
+            Address_2.text = homestay_info_1.get_add2()
         }
-        if !(homestay_info_1.postalcode.isEmpty) {
-            Postal_code.text = homestay_info_1.postalcode
+        if !(homestay_info_1.get_pos().isEmpty) {
+            Postal_code.text = homestay_info_1.get_pos()
         }
-        if !(homestay_info_1.city.isEmpty) {
-            City.text = homestay_info_1.city
+        if !(homestay_info_1.get_city().isEmpty) {
+            City.text = homestay_info_1.get_city()
         }
-        if !(homestay_info_1.state.isEmpty) {
-            State.text = homestay_info_1.state
+        if !(homestay_info_1.get_state().isEmpty) {
+            State.text = homestay_info_1.get_state()
         }
-        if !(homestay_info_1.typeofhomestay.isEmpty) {
-            Type_Homestay.text = homestay_info_1.typeofhomestay
+        if !(homestay_info_1.get_type().isEmpty) {
+            Type_Homestay.text = homestay_info_1.get_type()
         }
     }
 }

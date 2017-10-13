@@ -37,6 +37,11 @@ class booknow_customer_registration: UIViewController, UITextFieldDelegate {
         
         start_queue()
         
+        firstname_uitext.useUnderLine()
+        lastname_uitext.useUnderLine()
+        email_uitext.useUnderLine()
+        contact_uitext.useUnderLine()
+
         // Dismiss Keyboard
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)

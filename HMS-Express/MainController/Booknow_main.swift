@@ -23,7 +23,7 @@ class booknow_main: UIViewController, UITextFieldDelegate, FSCalendarDataSource,
     }()
     fileprivate let formatter2: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "  d MMM, YYYY"
+        formatter.dateFormat = "dd MMM, YYYY"
         return formatter
     }()
     
@@ -95,6 +95,11 @@ class booknow_main: UIViewController, UITextFieldDelegate, FSCalendarDataSource,
             if child_pax == 0 { child_pax = 0 }
             else{ child_pax -= 1 }
             children_uitext.text = String(child_pax)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as UIViewController
+        vc.navigationItem.title = "Back"
     }
     
     // ViewDidLoad

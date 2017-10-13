@@ -10,28 +10,20 @@ import UIKit
 
 class Booknow_search_info: UIViewController {
 
+    var homestay_Id = String()
      var homestay = Homestay_schema1()
+    
+    @IBOutlet weak var Homestay_Name: UILabel!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        Homestay_Name.text = homestay.get_name()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

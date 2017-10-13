@@ -35,7 +35,14 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         if segue.identifier == "next_3" {
             
             let vc = segue.destination as! Homestay_info_page3
-            homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
+            
+            homestay_info_2.set_guest(capacity_homestay.text!)
+            homestay_info_2.set_bedroom(capacity_bedroom.text!)
+            homestay_info_2.set_bathroom(capacity_bathroom.text!)
+            homestay_info_2.set_kingbed(king_bed.text! )
+            homestay_info_2.set_queenbed(queen_bed.text!)
+            homestay_info_2.set_singlebed(single_bed.text!)
+            
             vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
             vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
             vc.homestay_info_3 = homestay_info_3.copy() as! Homestay_schema3
@@ -44,7 +51,12 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
             
             let vc = segue.destination as! Homestay_info_page1
             
-            homestay_info_2 =  Homestay_schema2.init( guest: capacity_homestay.text! , bedroom: capacity_bedroom.text! , bathroom: capacity_bathroom.text!, kingbed: king_bed.text! , queenbed: queen_bed.text! , singlebed: single_bed.text! )
+            homestay_info_2.set_guest(capacity_homestay.text!)
+            homestay_info_2.set_bedroom(capacity_bedroom.text!)
+            homestay_info_2.set_bathroom(capacity_bathroom.text!)
+            homestay_info_2.set_kingbed(king_bed.text! )
+            homestay_info_2.set_queenbed(queen_bed.text!)
+            homestay_info_2.set_singlebed(single_bed.text!)
             
             vc.homestay_info_1 = homestay_info_1.copy() as! Homestay_schema1
             vc.homestay_info_2 = homestay_info_2.copy() as! Homestay_schema2
@@ -209,24 +221,24 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
 
     func defaultvalue(){
         
-        if !(homestay_info_2.guest.isEmpty) {
-            capacity_homestay.text = homestay_info_2.guest
+        if !(homestay_info_2.get_guest().isEmpty) {
+            capacity_homestay.text = homestay_info_2.get_guest()
         }
         
-        if !(homestay_info_2.bedroom.isEmpty) {
-            capacity_bedroom.text = homestay_info_2.bedroom
+        if !(homestay_info_2.get_bedroom().isEmpty) {
+            capacity_bedroom.text = homestay_info_2.get_bedroom()
         }
-        if !(homestay_info_2.bathroom.isEmpty) {
-            capacity_bathroom.text = homestay_info_2.bathroom
+        if !(homestay_info_2.get_bathroom().isEmpty) {
+            capacity_bathroom.text = homestay_info_2.get_bathroom()
         }
-        if !(homestay_info_2.kingbed.isEmpty) {
-            king_bed.text = homestay_info_2.kingbed
+        if !(homestay_info_2.get_kingbed().isEmpty) {
+            king_bed.text = homestay_info_2.get_kingbed()
         }
-        if !(homestay_info_2.queenbed.isEmpty) {
-            queen_bed.text = homestay_info_2.queenbed
+        if !(homestay_info_2.get_queenbed().isEmpty) {
+            queen_bed.text = homestay_info_2.get_queenbed()
         }
-        if !(homestay_info_2.singlebed.isEmpty) {
-            single_bed.text = homestay_info_2.singlebed
+        if !(homestay_info_2.get_singlebed().isEmpty) {
+            single_bed.text = homestay_info_2.get_singlebed()
         }
 
     }

@@ -18,8 +18,8 @@ class Homestay_main: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     // Register Button
     @IBAction func register_button(_ sender: AnyObject) {
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homestay_info_page1") as! Homestay_info_page1
+        let sb = UIStoryboard( name : "Homestay", bundle : nil )
+        let vc = sb.instantiateViewController(withIdentifier: "homestay_info_page1") as! Homestay_info_page1
         vc.homestay_info_1 = Homestay_schema1.init()
         vc.homestay_info_2 = Homestay_schema2.init()
         vc.homestay_info_3 = Homestay_schema3.init()
@@ -63,7 +63,7 @@ class Homestay_main: UIViewController, UITableViewDelegate, UITableViewDataSourc
         var curr_home: Homestay_schema1
         curr_home = listofhomestay[indexPath.row]
         cell.homestay_label.text = curr_home.get_name()
-        cell.location_label.text = curr_home.get_Location()
+        cell.location_label.text = curr_home.get_state()
         
         return cell
         

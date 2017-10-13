@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class booknow_search: UITableViewController {
 
     // Variable
     var listofhomestay = [Homestay_schema1]()
@@ -26,7 +26,16 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
         vc.selectedIndex = 0
         self.present(vc, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        if segue.identifier == "to_detail" {
+            let indexPath:NSIndexPath = self.HomestayTable.indexPathForSelectedRow! as NSIndexPath
+            let homestay_item : Homestay_schema1 = listofhomestay[indexPath.row]
+            let vc = segue.destination as! Booknow_search_info
+            vc.homestay = homestay_item.copy() as! Homestay_schema1
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +52,11 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // Table View Delegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listofhomestay.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //creating a cell using the custom class
         let cell = tableView.dequeueReusableCell(withIdentifier: "book_cell", for: indexPath) as! Booknow_cell
@@ -59,18 +68,7 @@ class booknow_search: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
         
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let homestay_item : Homestay_schema1 = listofhomestay[indexPath.row]
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Booknow_search_info") as! Booknow_search_info
-        vc.homestay = homestay_item.copy() as! Homestay_schema1
-        self.present(vc, animated: true, completion: nil)
-
-    }
-
-
-    
     func dequeueHomestay() {
         //observing the data changes
         

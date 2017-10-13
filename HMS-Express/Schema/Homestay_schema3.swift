@@ -13,20 +13,22 @@ import Firebase
 internal class Homestay_schema3 : NSObject, NSCopying {
     
     // Variable
-    var tv: Bool
-    var wifi: Bool
-    var shampoo: Bool
-    var aircond: Bool
-    var hairdryer: Bool
-    var iron: Bool
-    var fridge: Bool
-    var microwave: Bool
-    var oven: Bool
-    var washing: Bool
-    var dryer: Bool
+    private var CID: String
+    private var tv: Bool
+    private var wifi: Bool
+    private var shampoo: Bool
+    private var aircond: Bool
+    private var hairdryer: Bool
+    private var iron: Bool
+    private var fridge: Bool
+    private var microwave: Bool
+    private var oven: Bool
+    private var washing: Bool
+    private var dryer: Bool
     
     // Ctor
-    init(tv: Bool, wifi: Bool, shampoo: Bool, aircond: Bool, hairdryer: Bool, iron: Bool , fridge: Bool, microwave: Bool, oven: Bool, washing: Bool, dryer: Bool) {
+    init(CID: String,tv: Bool, wifi: Bool, shampoo: Bool, aircond: Bool, hairdryer: Bool, iron: Bool , fridge: Bool, microwave: Bool, oven: Bool, washing: Bool, dryer: Bool) {
+        self.CID = CID
         self.tv = tv
         self.wifi = wifi
         self.shampoo = shampoo
@@ -42,12 +44,13 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     
     // Dtor
     convenience override init() {
-        self.init(tv: false, wifi: false, shampoo: false, aircond:  false,  hairdryer : false , iron : false, fridge: false, microwave: false, oven: false, washing:  false,  dryer : false)
+        self.init(CID : "" , tv: false, wifi: false, shampoo: false, aircond:  false,  hairdryer : false , iron : false, fridge: false, microwave: false, oven: false, washing:  false,  dryer : false)
     }
     
     init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String: Bool] else { return nil }
+        guard let dict = snapshot.value as? [String: Any] else { return nil }
         
+        guard let CID  = dict["CID"]  else { return nil }
         guard let tv  = dict["tv"]  else { return nil }
         guard let wifi = dict["wifi"] else { return nil }
         guard let shampoo = dict["shampoo"] else { return nil }
@@ -60,28 +63,29 @@ internal class Homestay_schema3 : NSObject, NSCopying {
         guard let washing = dict["washing"] else { return nil }
         guard let dryer = dict["dryer"] else { return nil }
         
-        
-        self.tv = tv
-        self.wifi = wifi
-        self.shampoo = shampoo
-        self.aircond = aircond
-        self.hairdryer = hairdryer
-        self.iron = iron
-        self.fridge = fridge
-        self.microwave = microwave
-        self.oven = oven
-        self.washing = washing
-        self.dryer = dryer
+        self.CID = CID as! String
+        self.tv = tv as! Bool 
+        self.wifi = wifi as! Bool
+        self.shampoo = shampoo as! Bool
+        self.aircond = aircond as! Bool
+        self.hairdryer = hairdryer as! Bool
+        self.iron = iron as! Bool
+        self.fridge = fridge as! Bool
+        self.microwave = microwave as! Bool
+        self.oven = oven as! Bool
+        self.washing = washing as! Bool
+        self.dryer = dryer as! Bool
         
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Homestay_schema3(tv: tv, wifi: wifi, shampoo: shampoo , aircond : aircond, hairdryer : hairdryer, iron : iron , fridge : fridge , microwave : microwave, oven : oven ,washing : washing, dryer :dryer  )
+        let copy = Homestay_schema3(CID : CID , tv: tv, wifi: wifi, shampoo: shampoo , aircond : aircond, hairdryer : hairdryer, iron : iron , fridge : fridge , microwave : microwave, oven : oven ,washing : washing, dryer :dryer  )
         return copy
     }
     
-    public func convert_to_list() -> [String : Bool]{
-        return ["TV" : self.tv ,
+    public func convert_to_list() -> [String : Any] {
+        return ["CID" : self.CID,
+                "TV" : self.tv ,
                 "WIFI" : self.wifi ,
                 "Shampoo" : self.aircond,
                 "Hairdryer" : self.hairdryer ,
@@ -92,6 +96,107 @@ internal class Homestay_schema3 : NSObject, NSCopying {
                 "Washing" : self.washing,
                 "Dryer" : self.dryer ]
     }
+    
+    
+    // Setter
+    func set_cid(_ key: String) {
+        self.CID = key
+    }
+    
+    func set_tv(_ key: Bool) {
+        self.tv = key
+    }
+    
+    func set_wifi(_ key: Bool) {
+        self.wifi = key
+    }
+    
+    func set_shampoo(_ key: Bool) {
+        self.shampoo = key
+    }
+    
+    func set_hairdryer(_ key: Bool) {
+        self.hairdryer = key
+    }
+    
+    func set_iron(_ key: Bool) {
+        self.iron = key
+    }
+    
+    func set_aircond(_ key: Bool) {
+        self.aircond = key
+    }
+    func set_fridge(_ key: Bool) {
+        self.fridge = key
+    }
+    
+    func set_microwave(_ key: Bool) {
+        self.microwave = key
+    }
+    
+    func set_oven(_ key: Bool) {
+        self.oven = key
+    }
+    
+    func set_washing(_ key: Bool) {
+        self.washing = key
+    }
+    
+    func set_dryer(_ key: Bool) {
+        self.dryer = key
+    }
+    
+    
+    // Getters
+    func get_cid()  -> String {
+        return self.CID
+    }
+    
+    func get_tv()  -> Bool {
+        return self.tv
+    }
+    
+    func get_wifi()  -> Bool {
+        return self.wifi
+    }
+    
+    func get_shampoo()  -> Bool {
+        return self.shampoo
+    }
+    
+    func get_aircond()  -> Bool {
+        return self.aircond
+    }
+    
+    func get_hairdryer()  -> Bool {
+        return self.hairdryer
+    }
+    
+    func get_iron()  -> Bool {
+        return self.iron
+    }
+    
+    func get_fridge()  -> Bool {
+        return self.fridge
+    }
+    
+    func get_microwave() -> Bool  {
+        return self.microwave
+    }
+    
+    func get_oven() -> Bool {
+        return self.oven
+    }
+    
+    func get_washing()  -> Bool {
+        return self.washing
+    }
+    
+    func get_dryer() -> Bool {
+        return self.dryer
+    }
+    
+    
     
     
 }

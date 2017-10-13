@@ -49,6 +49,7 @@
 		0B795B9C1F759EA400252B9F /* Homestay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B991F759E7600252B9F /* Homestay.storyboard */; };
 		0B795B9D1F759EAB00252B9F /* Booknow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B981F759E5F00252B9F /* Booknow.storyboard */; };
 		0B795B9E1F759F8900252B9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B795B901F759C1800252B9F /* GoogleService-Info.plist */; };
+		0B8FDBEF1F8C9D28006DA2E4 /* Booknow_NC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FDBEE1F8C9D28006DA2E4 /* Booknow_NC.swift */; };
 		0BAFD4A41F7F62A900B38751 /* Homestay_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAFD4A31F7F62A900B38751 /* Homestay_TableViewCell.swift */; };
 		0BB2A1BF1F86692C00310465 /* backupfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB2A1BE1F86692C00310465 /* backupfile.swift */; };
 		0BB2A1C11F866C8B00310465 /* Booknow_Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB2A1C01F866C8B00310465 /* Booknow_Calender.swift */; };
@@ -103,6 +104,7 @@
 		0B795B981F759E5F00252B9F /* Booknow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booknow.storyboard; sourceTree = "<group>"; };
 		0B795B991F759E7600252B9F /* Homestay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homestay.storyboard; sourceTree = "<group>"; };
 		0B795B9A1F759E9800252B9F /* MainController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainController.storyboard; sourceTree = "<group>"; };
+		0B8FDBEE1F8C9D28006DA2E4 /* Booknow_NC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booknow_NC.swift; sourceTree = "<group>"; };
 		0BAFD4A01F7F5C6B00B38751 /* HMS-Express.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HMS-Express.entitlements"; sourceTree = "<group>"; };
 		0BAFD4A31F7F62A900B38751 /* Homestay_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Homestay_TableViewCell.swift; path = "/Users/zhankit/Desktop/HMS-Express/HMS-Express/TableCell/Homestay_TableViewCell.swift"; sourceTree = "<absolute>"; };
 		0BB2A1BE1F86692C00310465 /* backupfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backupfile.swift; sourceTree = "<group>"; };
@@ -166,16 +168,16 @@
 			children = (
 				0BAFD4A01F7F5C6B00B38751 /* HMS-Express.entitlements */,
 				0B795B361F7596CF00252B9F /* AppDelegate.swift */,
+				0B795B831F75989F00252B9F /* Login */,
+				0B795B821F75988700252B9F /* Schema */,
+				0B795B851F7598CA00252B9F /* HMStoggle */,
+				0B795B841F7598BF00252B9F /* MainController */,
 				0BD8B1B41F87CC6500B4CC22 /* TableCell */,
 				0B1FC7381F83F47F00F9C986 /* Segue */,
 				0B37CFC41F7642440050146B /* Welcome */,
 				0B795B861F75994300252B9F /* Booking */,
 				0B795B8F1F75997500252B9F /* Book Now */,
-				0B795B841F7598BF00252B9F /* Profile */,
-				0B795B831F75989F00252B9F /* Login */,
 				0B795B801F75985E00252B9F /* Homestay */,
-				0B795B851F7598CA00252B9F /* HMStoggle */,
-				0B795B821F75988700252B9F /* Schema */,
 				0B795B991F759E7600252B9F /* Homestay.storyboard */,
 				0B795B9A1F759E9800252B9F /* MainController.storyboard */,
 				0B795B981F759E5F00252B9F /* Booknow.storyboard */,
@@ -197,7 +199,6 @@
 				0B795B6E1F75974300252B9F /* Homestay_info_page1.swift */,
 				0B795B6D1F75974300252B9F /* Homestay_info_page2.swift */,
 				0B795B6F1F75974300252B9F /* Homestay_info_page3.swift */,
-				0B795B731F75974400252B9F /* Homestay_main.swift */,
 			);
 			path = Homestay;
 			sourceTree = "<group>";
@@ -227,12 +228,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		0B795B841F7598BF00252B9F /* Profile */ = {
+		0B795B841F7598BF00252B9F /* MainController */ = {
 			isa = PBXGroup;
 			children = (
+				0B795B4B1F75971600252B9F /* Bookinglist_main.swift */,
+				0B795B871F75996200252B9F /* Booknow_main.swift */,
+				0B795B731F75974400252B9F /* Homestay_main.swift */,
 				0B795B611F75972D00252B9F /* Profile.swift */,
 			);
-			path = Profile;
+			path = MainController;
 			sourceTree = "<group>";
 		};
 		0B795B851F7598CA00252B9F /* HMStoggle */ = {
@@ -243,6 +247,7 @@
 				0BB2A1C01F866C8B00310465 /* Booknow_Calender.swift */,
 				0B5C70251F7DDFDB0019BE26 /* indicator.swift */,
 				0B4B18981F779D2A00BC4B2D /* pax_picker.swift */,
+				0B8FDBEE1F8C9D28006DA2E4 /* Booknow_NC.swift */,
 			);
 			path = HMStoggle;
 			sourceTree = "<group>";
@@ -251,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				0B795B4C1F75971700252B9F /* Bookinglist_detail.swift */,
-				0B795B4B1F75971600252B9F /* Bookinglist_main.swift */,
 			);
 			path = Booking;
 			sourceTree = "<group>";
@@ -260,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				0B795B891F75996300252B9F /* Booknow_register_customer.swift */,
-				0B795B871F75996200252B9F /* Booknow_main.swift */,
 				0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */,
 				0B795B881F75996200252B9F /* Booknow_search.swift */,
 				0B795B8A1F75996300252B9F /* Booknow_customerinfo.swift */,
@@ -463,6 +466,7 @@
 				0BB2A1C31F873B3700310465 /* Booknow_cell.swift in Sources */,
 				0B795B581F75972000252B9F /* Booknow_confirmation.swift in Sources */,
 				0B647BB61F88D4A800ADE4E7 /* Booknow_search_info.swift in Sources */,
+				0B8FDBEF1F8C9D28006DA2E4 /* Booknow_NC.swift in Sources */,
 				0BAFD4A41F7F62A900B38751 /* Homestay_TableViewCell.swift in Sources */,
 				0B1FC73C1F83F78F00F9C986 /* FromRight.swift in Sources */,
 				0B795B751F75974500252B9F /* Homestay_info_page1.swift in Sources */,
@@ -613,6 +617,7 @@
 			baseConfigurationReference = 017D02EDAA384F5E13733111 /* Pods-HMS-Express.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "HMS-Express/HMS-Express.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8F686FJLU;
@@ -621,7 +626,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ScrewIt.HMS-Express";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -630,6 +635,7 @@
 			baseConfigurationReference = F594A3D31AA5E6C58D875561 /* Pods-HMS-Express.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "HMS-Express/HMS-Express.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8F686FJLU;
@@ -638,7 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ScrewIt.HMS-Express";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

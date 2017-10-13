@@ -9,26 +9,19 @@
 import UIKit
 import Firebase
 
-class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
+class booknow_customerinfo: UITableViewController, UISearchResultsUpdating , UISearchBarDelegate {
 
     // Variable
     fileprivate var total_user = [Customer]()
     fileprivate var filter_user = [Customer]()
     fileprivate var curruser = Employee()
 
-
     // IBOutlet
     @IBOutlet var user_table: UITableView!
-    @IBOutlet weak var back_button: UIButton!
-    @IBOutlet weak var next_button: UIButton!
-    @IBOutlet weak var register_button: UIButton!
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //searchController.dismiss(animated: false, completion: nil)
-        searchController.isActive = false
-    }
     
     let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -75,7 +68,7 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
         return searchController.isActive && !searchBarIsEmpty()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if isFiltering(){
             return filter_user.count
@@ -83,7 +76,7 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
         return total_user.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customer_cell", for: indexPath) as! Customer_cell
         var name = String()
@@ -95,15 +88,6 @@ class booknow_customerinfo: UIViewController, UISearchResultsUpdating ,UITableVi
         
         cell.name.text = name
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-       // let customer : Customer = total_user[indexPath.row]
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Booking_confirm") as! booknow_confirmation
-        //vc.customer = customer.copy() as Customer
-        self.present(vc, animated: true, completion: nil)
-        
     }
     
     func dequeueHomestay() {
