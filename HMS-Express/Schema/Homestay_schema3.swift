@@ -13,7 +13,7 @@ import Firebase
 internal class Homestay_schema3 : NSObject, NSCopying {
     
     // Variable
-    private var CID: String
+    private var HID: String
     private var tv: Bool
     private var wifi: Bool
     private var shampoo: Bool
@@ -27,8 +27,8 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     private var dryer: Bool
     
     // Ctor
-    init(CID: String,tv: Bool, wifi: Bool, shampoo: Bool, aircond: Bool, hairdryer: Bool, iron: Bool , fridge: Bool, microwave: Bool, oven: Bool, washing: Bool, dryer: Bool) {
-        self.CID = CID
+    init(HID: String,tv: Bool, wifi: Bool, shampoo: Bool, aircond: Bool, hairdryer: Bool, iron: Bool , fridge: Bool, microwave: Bool, oven: Bool, washing: Bool, dryer: Bool) {
+        self.HID = HID
         self.tv = tv
         self.wifi = wifi
         self.shampoo = shampoo
@@ -44,13 +44,13 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     
     // Dtor
     convenience override init() {
-        self.init(CID : "" , tv: false, wifi: false, shampoo: false, aircond:  false,  hairdryer : false , iron : false, fridge: false, microwave: false, oven: false, washing:  false,  dryer : false)
+        self.init(HID : "" , tv: false, wifi: false, shampoo: false, aircond:  false,  hairdryer : false , iron : false, fridge: false, microwave: false, oven: false, washing:  false,  dryer : false)
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: Any] else { return nil }
         
-        guard let CID  = dict["CID"]  else { return nil }
+        guard let HID  = dict["HID"]  else { return nil }
         guard let tv  = dict["tv"]  else { return nil }
         guard let wifi = dict["wifi"] else { return nil }
         guard let shampoo = dict["shampoo"] else { return nil }
@@ -63,7 +63,7 @@ internal class Homestay_schema3 : NSObject, NSCopying {
         guard let washing = dict["washing"] else { return nil }
         guard let dryer = dict["dryer"] else { return nil }
         
-        self.CID = CID as! String
+        self.HID = HID as! String
         self.tv = tv as! Bool 
         self.wifi = wifi as! Bool
         self.shampoo = shampoo as! Bool
@@ -79,12 +79,12 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Homestay_schema3(CID : CID , tv: tv, wifi: wifi, shampoo: shampoo , aircond : aircond, hairdryer : hairdryer, iron : iron , fridge : fridge , microwave : microwave, oven : oven ,washing : washing, dryer :dryer  )
+        let copy = Homestay_schema3(HID : HID , tv: tv, wifi: wifi, shampoo: shampoo , aircond : aircond, hairdryer : hairdryer, iron : iron , fridge : fridge , microwave : microwave, oven : oven ,washing : washing, dryer :dryer  )
         return copy
     }
     
     public func convert_to_list() -> [String : Any] {
-        return ["CID" : self.CID,
+        return ["HID" : self.HID,
                 "TV" : self.tv ,
                 "WIFI" : self.wifi ,
                 "Shampoo" : self.aircond,
@@ -99,8 +99,8 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     
     
     // Setter
-    func set_cid(_ key: String) {
-        self.CID = key
+    func set_hid(_ key: String) {
+        self.HID = key
     }
     
     func set_tv(_ key: Bool) {
@@ -148,8 +148,8 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     
     
     // Getters
-    func get_cid()  -> String {
-        return self.CID
+    func get_hid()  -> String {
+        return self.HID
     }
     
     func get_tv()  -> Bool {

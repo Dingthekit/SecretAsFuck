@@ -29,8 +29,8 @@ class profile: UITableViewController {
             do {
                 try Auth.auth().signOut()
                 let sb = UIStoryboard ( name : "Main" , bundle : nil )
-                let vc = sb.instantiateViewController(withIdentifier: "Login")
-                self.present(vc , animated: true, completion: nil)
+                let vc = sb.instantiateInitialViewController()
+                self.present(vc! , animated: true, completion: nil)
 
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -56,7 +56,6 @@ class profile: UITableViewController {
         
         let uid : String = (Auth.auth().currentUser?.uid)!
         ref.child(uid).observe(.value, with: { snapshot in
-        print(snapshot)
             if snapshot.exists(){
                 self.curruser = Employee.init(snapshot: snapshot)!
                 self.company_label.text =  self.curruser.get_CompName()

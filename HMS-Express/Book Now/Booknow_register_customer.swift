@@ -12,7 +12,7 @@ import Firebase
 class booknow_customer_registration: UIViewController, UITextFieldDelegate {
 
     // Variable
-    fileprivate  var curruser = Employee()
+    fileprivate var curruser = Employee()
     fileprivate let ref = Database.database().reference(withPath: "System_User")
 
     // IBOutlet
@@ -27,9 +27,17 @@ class booknow_customer_registration: UIViewController, UITextFieldDelegate {
         let CID : String = self.curruser.get_CID()
         let key = Database.database().reference().child("Customer").child(CID).childByAutoId().key
         let customerref = Database.database().reference().child("Customer").child(CID).child(key)
-        let customer_info = Customer.init( first_name: self.firstname_uitext.text! , last_name: self.lastname_uitext.text! , full_name: self.lastname_uitext.text! + " " + self.firstname_uitext.text! ,phonenumber: self.contact_uitext.text!,email: self.email_uitext.text!  )
+        let customer_info = Customer()
+        customer_info.set_firstname(self.firstname_uitext.text!)
+        customer_info.set_lastnam(self.lastname_uitext.text!)
+        customer_info.set_fullname( self.lastname_uitext.text! + " " + self.firstname_uitext.text!)
+        customer_info.set_phonenumber(self.contact_uitext.text!)
+        customer_info.set_email(self.email_uitext.text! )
+        customer_info.set_CID(key)
+        
         customerref.setValue( customer_info.convert_to_list() )
         
+        self.navigationController?.popViewController(animated: true)
     }
         
     override func viewDidLoad() {

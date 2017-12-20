@@ -85,9 +85,9 @@ class Homestay_info_page3: UIViewController {
             let key = Database.database().reference().child("Homestay").child(CID).childByAutoId().key
             let homestay_ref = Database.database().reference().child("Homestay").child(CID).child(key)
             
-            self.homestay_info_1.set_cid(key)
-            self.homestay_info_2.set_cid(key)
-            self.homestay_info_3.set_cid(key)
+            self.homestay_info_1.set_hid(key)
+            self.homestay_info_2.set_hid(key)
+            self.homestay_info_3.set_hid(key)
 
             homestay_ref.child("Name").setValue(self.homestay_info_1.get_name())
             homestay_ref.child("HID").setValue(key)
@@ -99,7 +99,7 @@ class Homestay_info_page3: UIViewController {
 
             let sb = UIStoryboard( name : "MainController", bundle : nil )
             let vc = sb.instantiateViewController(withIdentifier: "Home") as! UITabBarController
-            vc.selectedIndex = 1
+            vc.selectedIndex = 2
             self.present(vc, animated: true, completion: nil)
             
         })
@@ -232,6 +232,10 @@ class Homestay_info_page3: UIViewController {
         if !(homestay_info_3.get_dryer()) {
             Dryer.isOn = homestay_info_3.get_dryer()
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 
 }

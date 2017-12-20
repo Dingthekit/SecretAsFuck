@@ -28,11 +28,24 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
     @IBOutlet var queen_bed: UITextField!
     @IBOutlet var single_bed: UITextField!
 
+    @IBAction func next_button(_ sender: Any) {
+        if ((self.capacity_homestay.text?.isEmpty)! || (self.capacity_bedroom.text?.isEmpty)! || (self.capacity_bathroom.text?.isEmpty)! || (self.king_bed.text?.isEmpty)! || (self.queen_bed.text?.isEmpty)! || (self.single_bed.text?.isEmpty)! ){
+            
+            let alert = UIAlertController(title: "", message: "Please fill up all the information.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+        } else {
+            self.performSegue(withIdentifier: "to_last", sender: self)
+        }
+    }
+    
     // Prepare Segue
     // 1. next_3
     // 2. back_1
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "next_3" {
+        if segue.identifier == "to_last" {
             
             let vc = segue.destination as! Homestay_info_page3
             
@@ -83,6 +96,7 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
         capacity_bathroom.useUnderLine()
         king_bed.useUnderLine()
         single_bed.useUnderLine()
+        queen_bed.useUnderLine()
         
         // Set default value of the UItext
         defaultvalue()
@@ -241,6 +255,10 @@ class Homestay_info_page2: UIViewController, UIPickerViewDelegate , UIPickerView
             single_bed.text = homestay_info_2.get_singlebed()
         }
 
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 }
 

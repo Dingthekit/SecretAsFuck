@@ -25,10 +25,10 @@ class ToggleButton: UIButton {
     
     func initButton(_ NameOfButton : String) {
         layer.borderWidth = 2.0
-        layer.borderColor = Colors.twitterBlue.cgColor
+        layer.borderColor = Colors.HMSBlue.cgColor
         layer.cornerRadius = frame.size.height/2
         
-        setTitleColor(Colors.twitterBlue, for: .normal)
+        setTitleColor(Colors.HMSBlue, for: .normal)
         self.NameOfButton = NameOfButton
         addTarget(self, action: #selector(ToggleButton.buttonPressed), for: .touchUpInside)
     }
@@ -41,9 +41,9 @@ class ToggleButton: UIButton {
         
         isOn = bool
         
-        let color = bool ? Colors.twitterBlue : .clear
+        let color = bool ? Colors.HMSBlue : .clear
         let title = bool ? self.NameOfButton : self.NameOfButton
-        let titleColor = bool ? .white : Colors.twitterBlue
+        let titleColor = bool ? .white : Colors.HMSBlue
         
         setTitle(title, for: .normal)
         setTitleColor(titleColor, for: .normal)

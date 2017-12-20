@@ -12,7 +12,7 @@ import Firebase
 internal class Homestay_schema2 : NSObject , NSCopying {
     
     // Variable
-    private var CID : String
+    private var HID : String
     private var guest: String
     private var bedroom: String
     private var bathroom: String
@@ -21,9 +21,9 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     private var singlebed: String
     
     // Ctor
-    init(CID: String, guest: String, bedroom: String, bathroom: String, kingbed: String, queenbed: String, singlebed: String) {
+    init(HID: String, guest: String, bedroom: String, bathroom: String, kingbed: String, queenbed: String, singlebed: String) {
         
-        self.CID = CID
+        self.HID = HID
         self.guest = guest
         self.bedroom = bedroom
         self.bathroom = bathroom
@@ -34,13 +34,13 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     
     // Dtor
     convenience override init() {
-        self.init(CID : "" ,guest: "", bedroom: "", bathroom: "", kingbed:  "",  queenbed : "" , singlebed : "")
+        self.init(HID : "" ,guest: "", bedroom: "", bathroom: "", kingbed:  "",  queenbed : "" , singlebed : "")
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: String] else { return nil }
         
-        guard let CID  = dict["CID"]  else { return nil }
+        guard let HID  = dict["HID"]  else { return nil }
         guard let guest  = dict["guest"]  else { return nil }
         guard let bedroom = dict["bedroom"] else { return nil }
         guard let bathroom = dict["bathroom"] else { return nil }
@@ -48,7 +48,7 @@ internal class Homestay_schema2 : NSObject , NSCopying {
         guard let queenbed = dict["queenbed"] else { return nil }
         guard let singlebed = dict["singlebed"] else { return nil }
         
-        self.CID = CID
+        self.HID = HID
         self.guest = guest
         self.bedroom = bedroom
         self.bathroom = bathroom
@@ -59,12 +59,12 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Homestay_schema2(CID: CID,guest: guest, bedroom: bedroom, bathroom: bathroom , kingbed : kingbed, queenbed : queenbed, singlebed : singlebed)
+        let copy = Homestay_schema2(HID: HID,guest: guest, bedroom: bedroom, bathroom: bathroom , kingbed : kingbed, queenbed : queenbed, singlebed : singlebed)
         return copy
     }
     
     public func convert_to_list() -> [String : String] {
-        return [ "CID" : self.CID,
+        return [ "HID" : self.HID,
                  "Guest" : self.guest ,
                  "Bedroom" : self.bedroom ,
                  "Bathroom" : self.bathroom ,
@@ -74,9 +74,10 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     }
     
     
+    
     // Setter
-    func set_cid(_ key: String) {
-        self.CID = key
+    func set_hid(_ key: String) {
+        self.HID = key
     }
     
     func set_guest(_ key: String) {
@@ -105,8 +106,8 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     
     
     // Getters
-    func get_cid() -> String {
-        return self.CID
+    func get_hid() -> String {
+        return self.HID
     }
     
     func get_guest() -> String {
@@ -132,6 +133,7 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     func get_singlebed() -> String {
         return self.singlebed
     }
+    
     
 }
 

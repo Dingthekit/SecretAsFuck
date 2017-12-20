@@ -12,5 +12,7 @@ import UIKit
 
 // Comment Line
 struct Colors {
-    static let twitterBlue = UIColor(red: 69.0/255.0, green: 114.0/255.0, blue: 148.0/255.0, alpha: 1.0)
+    static let HMSBlue = UIColor(red: 69.0/255.0, green: 114.0/255.0, blue: 148.0/255.0, alpha: 1.0)
+    static let HMSWhite = UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 1.0)
+
 }

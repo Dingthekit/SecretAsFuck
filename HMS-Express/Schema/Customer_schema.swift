@@ -12,25 +12,27 @@ import Firebase
 
 public class Customer: NSObject {
     
-    var email: String
-    var first_name: String
-    var last_name: String
-    var full_name: String
-    var phonenumber: String
+    private var email: String
+    private var first_name: String
+    private var last_name: String
+    private var full_name: String
+    private var phonenumber: String
+    private var CID: String
     
     // Ctor
-    init(first_name: String, last_name: String, full_name: String, phonenumber: String, email: String ) {
+    init(first_name: String, last_name: String, full_name: String, phonenumber: String, email: String , CID : String ) {
         self.first_name = first_name
         self.last_name = last_name
         self.phonenumber = phonenumber
         self.full_name = full_name
         self.email = email
+        self.CID = CID
 
     }
     
     // Dtor
     convenience override init() {
-        self.init( first_name: "", last_name: "",full_name : "", phonenumber:  "", email: "")
+        self.init( first_name: "", last_name: "",full_name : "", phonenumber:  "", email: "" , CID : "")
     }
     
     init?(snapshot: DataSnapshot) {
@@ -41,17 +43,20 @@ public class Customer: NSObject {
         guard let full_name  = dict["Full_name"]  else { return nil }
         guard let phonenumber = dict["Phone_number"] else { return nil }
         guard let email  = dict["Email"]  else { return nil }
+        guard let CID  = dict["CID"]  else { return nil }
 
+        
         self.first_name = first_name
         self.last_name = last_name
         self.full_name = full_name
         self.phonenumber = phonenumber
         self.email = email
+        self.CID = CID
         
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Customer( first_name: first_name, last_name: last_name ,full_name : full_name, phonenumber:phonenumber, email: email)
+        let copy = Customer( first_name : first_name, last_name : last_name ,full_name : full_name, phonenumber : phonenumber, email : email, CID : CID)
         return copy
     }
     
@@ -60,11 +65,58 @@ public class Customer: NSObject {
                 "Last_name" : self.last_name ,
                 "Full_name" : self.full_name ,
                 "Phone_number" : self.phonenumber,
-                "Email" : self.email ]
+                "Email" : self.email,
+                "CID" : self.CID ]
     }
     
-    public func get_fullname() -> String{
+    func set_firstname(_  key : String ){
+        self.first_name = key
+    }
+    
+    func set_lastnam( _ key : String ){
+        self.last_name = key
+    }
+    
+    func set_fullname( _ key : String ){
+        self.full_name = key
+    }
+    
+    func set_email( _ key : String ){
+        self.email = key
+    }
+    
+    func set_phonenumber( _ key : String ){
+        self.phonenumber = key
+    }
+    
+    func set_CID( _ key : String ){
+        self.CID = key
+    }
+    
+    // Getter
+    
+    func get_firstname() -> String {
+        return self.first_name
+    }
+    
+    func get_lastname() -> String{
+        return self.last_name
+    }
+    
+    func get_fullname() -> String{
         return self.full_name
+    }
+    
+    func get_email() -> String{
+        return self.email
+    }
+    
+    func get_phonenumber() -> String{
+        return self.phonenumber
+    }
+    
+    func get_CID() -> String{
+        return self.CID
     }
     
     

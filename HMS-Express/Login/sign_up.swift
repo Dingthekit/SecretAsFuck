@@ -12,10 +12,12 @@ import FirebaseAuth
 
 class sign_up: UIViewController,UITextFieldDelegate {
 
+    
     // IBOutlet
     @IBOutlet var email_uitext: UITextField!
     @IBOutlet var password_uitext: UITextField!
     @IBOutlet var repassword_uitext: UITextField!
+    
     @IBAction func Confirm_Signup(_ sender: AnyObject) {
         
         // UItextfield is blank
@@ -70,7 +72,7 @@ class sign_up: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
         // Delegate
         email_uitext.delegate = self
         password_uitext.delegate = self
@@ -86,6 +88,8 @@ class sign_up: UIViewController,UITextFieldDelegate {
         view.addGestureRecognizer(tap)
     
     }
+    
+
 
     // Keyboard return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

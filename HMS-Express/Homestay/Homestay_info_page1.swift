@@ -38,10 +38,22 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func next_button(_ sender: Any) {
+        if ((self.Address_1.text?.isEmpty)! || (self.Address_2.text?.isEmpty)! || (self.Postal_code.text?.isEmpty)! || (self.City.text?.isEmpty)! || (self.State.text?.isEmpty)! || (self.Type_Homestay.text?.isEmpty)! ){
+            
+            let alert = UIAlertController(title: "", message: "Please fill up all the information.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            self.performSegue(withIdentifier: "to_second", sender: self)
+        }
+    }
     // Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "next_2" {
+        if segue.identifier == "to_second" {
             
             homestay_info_1.set_name(Name.text!)
             homestay_info_1.set_add1(Address_1.text!)
@@ -115,6 +127,10 @@ class Homestay_info_page1: UIViewController, UITextFieldDelegate {
         if !(homestay_info_1.get_type().isEmpty) {
             Type_Homestay.text = homestay_info_1.get_type()
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 }
 
