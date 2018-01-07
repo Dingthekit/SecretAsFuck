@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>277092413201-v8fhgasbne84knudhrdrdau76c2d61eo.apps.googleusercontent.com</string>
+	<string>690921780840-vogrn0c58q63t4c61o32a3eb0nck04f4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.277092413201-v8fhgasbne84knudhrdrdau76c2d61eo</string>
+	<string>com.googleusercontent.apps.690921780840-vogrn0c58q63t4c61o32a3eb0nck04f4</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA2wzZzp05KpZRe83APtO35VFea_W1FmxU</string>
+	<string>AIzaSyAa0J3zegZCgLcQ59wwt_wF8Cq9k29JySU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>277092413201</string>
+	<string>690921780840</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ScrewIt.HMS-Express</string>
+	<string>Ding.HMS-Express</string>
 	<key>PROJECT_ID</key>
-	<string>hms-express-c9571</string>
+	<string>hms-ex</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hms-express-c9571.appspot.com</string>
+	<string>hms-ex.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:277092413201:ios:140186aea196b281</string>
+	<string>1:690921780840:ios:095b1ffae857b861</string>
 	<key>DATABASE_URL</key>
-	<string>https://hms-express-c9571.firebaseio.com</string>
+	<string>https://hms-ex.firebaseio.com</string>
 </dict>
 </plist>

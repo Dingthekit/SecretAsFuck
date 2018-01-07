@@ -8,12 +8,14 @@ target 'HMS-Express' do
   # Pods for HMS-Express
   pod ‘Firebase’
   pod 'Firebase/Core'
+  pod 'Firebase/Storage'
   pod 'Firebase/Database’
   pod 'Firebase/Auth'
-
+    
   # Extension
   pod 'NVActivityIndicatorView'
   pod 'FSCalendar'
+
 
 
 end

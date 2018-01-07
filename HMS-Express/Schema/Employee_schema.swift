@@ -109,4 +109,35 @@ internal class Employee: NSObject {
         return self.privilage
     }
     
+    func set_UID(UID : String) {
+        self.UID = UID
+    }
+    
+    func set_email( _ email : String){
+        self.email = email
+    }
+    
+    func set_firstname( _ first_name : String ){
+        self.first_name = first_name
+    }
+    
+    func set_lastname( _ last_name : String) {
+        self.last_name = last_name
+    }
+    
+    func set_phone( _ phonenumber : String ) {
+        self.phonenumber = phonenumber
+    }
+    
+    func set_CID( _ CID : String ) {
+        self.CID = CID
+    }
+    
+    func set_Compname( _ Company_name : String ) {
+        self.Company_name = Company_name
+    }
+    
+    func set_privi( _ privilage : String ) {
+        self.privilage = privilage
+    }
 }

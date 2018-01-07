@@ -55,6 +55,14 @@ internal class Code: NSObject {
         self.isUsed = isUsed as! Bool
     }
     
+    public func convert_to_list() -> [String : Any] {
+        return [ "CID": self.CID    ,
+                 "Company_Permit": self.Company_Permit ,
+                 "Company_Name": self.Company_Name,
+                 "Code_Number": self.Code_Number ,
+                 "isUsed": self.isUsed ]
+    }
+    
     // Getters 
     func get_CID() -> String {
         return self.CID
@@ -74,6 +82,27 @@ internal class Code: NSObject {
     
     func get_validation() -> Bool {
         return !(self.isUsed)
+    }
+    
+    // Getters
+    func set_CID(CID : String ) {
+        self.CID = CID
+    }
+    
+    func set_CompPermit(Company_Permit : String ) {
+        self.Company_Permit = Company_Permit
+    }
+    
+    func set_CompName(Company_Name : String) {
+        self.Company_Name = Company_Name
+    }
+    
+    func set_Code(Code_Number : String) {
+        self.Code_Number = Code_Number
+    }
+    
+    func set_validation(isUsed : Bool){
+         self.isUsed = isUsed
     }
     
 }

@@ -97,7 +97,6 @@ internal class Homestay_schema3 : NSObject, NSCopying {
                 "Dryer" : self.dryer ]
     }
     
-    
     // Setter
     func set_hid(_ key: String) {
         self.HID = key

@@ -24,11 +24,11 @@ public class Booking: NSObject {
     private var deposit: String
     private var payment : String
     private var note : String
-
+    private var register_by : String
     
     
     // Ctor 
-    init(company_id: String, homestay_id: String, homestay_name: String , booking_id: String, user_id : String , user_name : String, checkin_date: String, checkout_date: String , total_price : String, deposit : String , payment : String, note : String) {
+    init(company_id: String, homestay_id: String, homestay_name: String , booking_id: String, user_id : String , user_name : String, checkin_date: String, checkout_date: String , total_price : String, deposit : String , payment : String, note : String, register_by : String) {
         self.company_id = company_id
         self.homestay_id = homestay_id
         self.homestay_name = homestay_name
@@ -41,12 +41,14 @@ public class Booking: NSObject {
         self.deposit = deposit
         self.payment = payment
         self.note = note
+        self.register_by = register_by
+
 
     }
     
     // Dtor
     convenience override init() {
-        self.init(company_id: "", homestay_id: "", homestay_name: "" , booking_id: "", user_id : "", user_name : "", checkin_date:  "", checkout_date:  "", total_price : "0", deposit : "0" , payment : "0", note : "" )
+        self.init(company_id: "", homestay_id: "", homestay_name: "" , booking_id: "", user_id : "", user_name : "", checkin_date:  "", checkout_date:  "", total_price : "0", deposit : "0" , payment : "0", note : "", register_by:   "")
     }
     
     init?(snapshot: DataSnapshot) {
@@ -64,6 +66,7 @@ public class Booking: NSObject {
         guard let deposit = dict["Deposit"] else { return nil }
         guard let payment = dict["Payment"] else { return nil }
         guard let note = dict["Note"] else { return nil }
+        guard let register_by = dict["Registered_by"] else { return nil }
 
         
         self.company_id = company_id
@@ -78,13 +81,14 @@ public class Booking: NSObject {
         self.deposit = deposit
         self.payment = payment
         self.note = note
+        self.register_by = register_by
 
 
 
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Booking(company_id: company_id, homestay_id: homestay_id, homestay_name : homestay_name, booking_id: booking_id, user_id : user_id, user_name : user_name, checkin_date:  checkin_date, checkout_date:  checkout_date , total_price : total_price , deposit : deposit , payment : payment, note : note)
+        let copy = Booking(company_id: company_id, homestay_id: homestay_id, homestay_name : homestay_name, booking_id: booking_id, user_id : user_id, user_name : user_name, checkin_date:  checkin_date, checkout_date:  checkout_date , total_price : total_price , deposit : deposit , payment : payment, note : note, register_by : register_by)
         return copy
     }
     
@@ -100,7 +104,8 @@ public class Booking: NSObject {
                 "Total_price" : self.total_price ,
                 "Deposit" : self.deposit,
                 "Payment" : self.payment,
-                "Note" : self.note]
+                "Note" : self.note,
+                "Registered_by" : self.register_by ]
     }
     
     
@@ -153,6 +158,10 @@ public class Booking: NSObject {
         self.note = key
     }
     
+    func set_registered(_ key: String) {
+        self.register_by = key
+    }
+    
     // Getters
     func get_cid() -> String {
         return self.company_id
@@ -200,6 +209,10 @@ public class Booking: NSObject {
 
     func get_note() -> String {
         return self.note
+    }
+    
+    func get_registered() -> String {
+        return self.register_by
     }
     
 }
