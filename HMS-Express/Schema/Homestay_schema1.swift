@@ -45,18 +45,45 @@ internal class Homestay_schema1: NSObject, NSCopying{
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: String] else { return nil }
         
-        guard let HID  = dict["HID"]  else { return nil }
-        guard let name  = dict["Name"]  else { return nil }
-        guard let address1 = dict["Address1"] else { return nil }
-        guard let address2 = dict["Address2"] else { return nil }
-        guard let postalcode = dict["PostalCode"] else { return nil }
-        guard let city = dict["City"] else { return nil }
-        guard let state = dict["State"] else { return nil }
-        guard let typeofhomestay = dict["TypeOfHome"] else { return nil }
-        guard let default_price = dict["Default_Price"] else { return nil }
+        var HID = String()
+        var Name = String()
+        var address1 = String()
+        var address2 = String()
+        var postalcode = String()
+        var city = String()
+        var state = String()
+        var typeofhomestay = String()
+        var default_price = String()
+        
+        if dict["HID"] != nil  { HID = dict["HID"]! }
+        else { HID = "" }
+        
+        if dict["Name"] != nil  { Name = dict["Name"]! }
+        else { Name = "" }
+        
+        if dict["Address1"] != nil  { address1 = dict["Address1"]! }
+        else { address1 = "" }
+        
+        if dict["Address2"] != nil  { address2 = dict["Address2"]! }
+        else { address2 = "" }
+        
+        if dict["PostalCode"] != nil  { postalcode = dict["PostalCode"]! }
+        else { postalcode = "" }
+        
+        if dict["PostalCode"] != nil  { city = dict["PostalCode"]! }
+        else { city = "" }
+        
+        if dict["State"] != nil  { state = dict["State"]! }
+        else { state = "" }
+        
+        if dict["TypeOfHome"] != nil  { typeofhomestay = dict["TypeOfHome"]! }
+        else { typeofhomestay = "" }
+        
+        if dict["Default_Price"] != nil { default_price =  dict["Default_Price"]! }
+        else { default_price = "" }
 
         self.HID = HID
-        self.name = name
+        self.name = Name
         self.address1 = address1
         self.address2 = address2
         self.postalcode = postalcode
@@ -64,7 +91,6 @@ internal class Homestay_schema1: NSObject, NSCopying{
         self.state = state
         self.typeofhomestay = typeofhomestay
         self.default_price = default_price
-
     }
     
     convenience init(listitem : [ String : String ])  {

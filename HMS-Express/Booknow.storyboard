@@ -51,11 +51,11 @@
                                     <action selector="submit_button:" destination="Qxx-xQ-2l4" eventType="touchUpInside" id="JQj-ed-ic5"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDc-xR-DKk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDc-xR-DKk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1086"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-oC-cWL" userLabel="Info View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="914"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Iq-jh-eDr">
                                                 <rect key="frame" x="0.0" y="120" width="414" height="160"/>
@@ -233,7 +233,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-hC-6fP" userLabel="Profile View">
-                                                <rect key="frame" x="0.0" y="300" width="414" height="374"/>
+                                                <rect key="frame" x="0.0" y="300" width="414" height="384"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qj-ap-gGZ">
                                                         <rect key="frame" x="10" y="304" width="394" height="20"/>
@@ -245,10 +245,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anc-x8-Mqo">
-                                                        <rect key="frame" x="20" y="334" width="374" height="30"/>
-                                                        <color key="backgroundColor" red="0.37782151170523753" green="0.63449372689554795" blue="0.78527522208121825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <rect key="frame" x="20" y="334" width="374" height="40"/>
+                                                        <color key="backgroundColor" red="0.043778248130000003" green="0.28035867209999998" blue="0.39686891439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="hw0-4K-tUA"/>
+                                                            <constraint firstAttribute="height" constant="40" id="hw0-4K-tUA"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                         <state key="normal" title="Existing Customer">
@@ -501,7 +501,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRu-JC-zvx" userLabel="Price View">
-                                                <rect key="frame" x="0.0" y="694" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="704" width="414" height="200"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah8-OY-HAT">
                                                         <rect key="frame" x="20" y="10" width="384" height="25"/>
@@ -531,7 +531,7 @@
                                                                 </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -607,7 +607,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2R-fk-vOG">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample_Homestay_2" translatesAutoresizingMaskIntoConstraints="NO" id="SMY-Bi-tWK">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample_Homestay_3" translatesAutoresizingMaskIntoConstraints="NO" id="SMY-Bi-tWK">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                                     </imageView>
                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Go3-H9-eCP">
@@ -619,7 +619,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="I3g-1P-Nep"/>
                                                         </constraints>
-                                                        <blurEffect style="light"/>
+                                                        <blurEffect style="dark"/>
                                                     </visualEffectView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homestay Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-pp-W3H">
                                                         <rect key="frame" x="20" y="80" width="394" height="40"/>
@@ -627,7 +627,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="JJ5-Qe-7RY"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="25"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -733,7 +733,7 @@
                                     <action selector="Comfirm:" destination="Ha3-YA-eO8" eventType="touchUpInside" id="puu-zq-Bsg"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w31-PS-gpk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w31-PS-gpk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1386"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-J3-1z5" userLabel="Main">
@@ -1586,7 +1586,7 @@ Available</string>
         <scene sceneID="rZA-Ok-PIf">
             <objects>
                 <tableViewController storyboardIdentifier="booknow_search" title="booknow_search" id="6M2-T4-bUf" customClass="booknow_search" customModule="HMS_Express" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hfo-t0-SoL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hfo-t0-SoL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1828,7 +1828,6 @@ Available</string>
     <resources>
         <image name="Asset 2" width="1078" height="485"/>
         <image name="Dot" width="302" height="302"/>
-        <image name="Sample_Homestay_2" width="920" height="593"/>
         <image name="Sample_Homestay_3" width="1024" height="683"/>
     </resources>
 </document>

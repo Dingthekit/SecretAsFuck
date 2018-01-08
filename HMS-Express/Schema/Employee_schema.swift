@@ -43,25 +43,25 @@ internal class Employee: NSObject {
     // Ctor : DataSnapshot
     init?(snapshot: DataSnapshot) {
         
-        guard let dict = snapshot.value as? [String: AnyObject] else { return nil }
+        guard let dict = snapshot.value as? [ String: String ] else { return nil }
         
-        guard let UID = dict["UID"] else { return nil }
-        guard let email  = dict["Email"]  else { return nil }
-        guard let first_name = dict["First_Name"] else { return nil }
-        guard let last_name = dict["Last_Name"] else { return nil }
-        guard let phonenumber = dict["Phone_Number"] else { return nil }
-        guard let CID = dict["CID"] else { return nil }
-        guard let Company_name = dict["Company_Name"] else { return nil }
-        guard let privilage = dict["Privilage"] else { return nil }
-        
-        self.UID = UID as! String
-        self.email = email as! String
-        self.first_name = first_name as! String
-        self.last_name = last_name as! String
-        self.phonenumber = phonenumber as! String
-        self.CID = CID as! String
-        self.Company_name = Company_name as! String
-        self.privilage = privilage as! String
+        if dict["UID"] != nil  {  self.UID = dict["UID"]! }
+        else { self.UID = "" }
+        if dict["Email"] != nil  {  self.email = dict["Email"]! }
+        else { self.email = "" }
+        if dict["First_Name"] != nil  {  self.first_name = dict["First_Name"]! }
+        else { self.first_name = "" }
+        if dict["Last_Name"] != nil  {  self.last_name = dict["Last_Name"]! }
+        else { self.last_name = "" }
+        if dict["Phone_Number"] != nil  {  self.phonenumber = dict["Phone_Number"]! }
+        else { self.phonenumber = "" }
+        if dict["CID"] != nil  {  self.CID = dict["CID"]! }
+        else { self.CID = "" }
+        if dict["Company_Name"] != nil  {  self.Company_name = dict["Company_Name"]! }
+        else { self.Company_name = "" }
+        if dict["Privilage"] != nil  {  self.privilage = dict["Privilage"]! }
+        else { self.privilage = "" }
+
 
     }
     

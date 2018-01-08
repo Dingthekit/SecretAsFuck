@@ -38,20 +38,25 @@ public class Customer: NSObject {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: String] else { return nil }
         
-        guard let first_name = dict["First_name"] else { return nil }
-        guard let last_name = dict["Last_name"] else { return nil }
-        guard let full_name  = dict["Full_name"]  else { return nil }
-        guard let phonenumber = dict["Phone_number"] else { return nil }
-        guard let email  = dict["Email"]  else { return nil }
-        guard let CID  = dict["CID"]  else { return nil }
-
         
-        self.first_name = first_name
-        self.last_name = last_name
-        self.full_name = full_name
-        self.phonenumber = phonenumber
-        self.email = email
-        self.CID = CID
+        if dict["First_name"] != nil  {  self.first_name = dict["First_name"]! }
+        else { self.first_name = "" }
+        
+        if dict["Last_name"] != nil  {  self.last_name = dict["Last_name"]! }
+        else { self.last_name = "" }
+        
+        if dict["Full_name"] != nil  {  self.full_name = dict["Full_name"]! }
+        else { self.full_name = "" }
+        
+        if dict["Phone_number"] != nil  {  self.phonenumber = dict["Phone_number"]! }
+        else { self.phonenumber = "" }
+        
+        if dict["Email"] != nil  {  self.email = dict["Email"]! }
+        else { self.email = "" }
+        
+        if dict["CID"] != nil  {  self.CID = dict["CID"]! }
+        else { self.CID = "" }
+
         
     }
     

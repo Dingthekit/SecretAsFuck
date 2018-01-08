@@ -54,36 +54,45 @@ public class Booking: NSObject {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: String] else { return nil }
         
-        guard let company_id  = dict["Company_id"]  else { return nil }
-        guard let homestay_id = dict["Homestay_id"] else { return nil }
-        guard let homestay_name = dict["Homestay_name"] else { return nil }
-        guard let booking_id = dict["Booking_id"] else { return nil }
-        guard let user_id = dict["User_id"] else { return nil }
-        guard let user_name = dict["User_name"] else { return nil }
-        guard let checkin_date = dict["Checkin_date"] else { return nil }
-        guard let checkout_date = dict["Checkout_date"] else { return nil }
-        guard let total_price = dict["Total_price"] else { return nil }
-        guard let deposit = dict["Deposit"] else { return nil }
-        guard let payment = dict["Payment"] else { return nil }
-        guard let note = dict["Note"] else { return nil }
-        guard let register_by = dict["Registered_by"] else { return nil }
 
+        if dict["Company_id"] != nil  {  self.company_id = dict["Company_id"]! }
+        else { self.company_id = "" }
         
-        self.company_id = company_id
-        self.homestay_id = homestay_id
-        self.homestay_name = homestay_name
-        self.booking_id = booking_id
-        self.user_id = user_id
-        self.user_name = user_name
-        self.checkin_date = checkin_date
-        self.checkout_date = checkout_date
-        self.total_price = total_price
-        self.deposit = deposit
-        self.payment = payment
-        self.note = note
-        self.register_by = register_by
+        if dict["Homestay_id"] != nil  {  self.homestay_id = dict["Homestay_id"]! }
+        else { self.homestay_id = "" }
+        
+        if dict["Homestay_name"] != nil  {  self.homestay_name = dict["Homestay_name"]! }
+        else { self.homestay_name = "" }
+        
+        if dict["Booking_id"] != nil  {  self.booking_id = dict["Booking_id"]! }
+        else { self.booking_id = "" }
+        
+        if dict["User_id"] != nil  {  self.user_id = dict["User_id"]! }
+        else { self.user_id = "" }
 
-
+        if dict["User_name"] != nil  {  self.user_name = dict["User_name"]! }
+        else { self.user_name = "" }
+        
+        if dict["Checkin_date"] != nil  {  self.checkin_date = dict["Checkin_date"]! }
+        else { self.checkin_date = "" }
+        
+        if dict["Checkout_date"] != nil  {  self.checkout_date = dict["Checkout_date"]! }
+        else { self.checkout_date = "" }
+        
+        if dict["Total_price"] != nil  {  self.total_price = dict["Total_price"]! }
+        else { self.total_price = "" }
+        
+        if dict["Deposit"] != nil  {  self.deposit = dict["Deposit"]! }
+        else { self.deposit = "" }
+        
+        if dict["Payment"] != nil  {  self.payment = dict["Payment"]! }
+        else { self.payment = "" }
+        
+        if dict["Note"] != nil  {  self.note = dict["Note"]! }
+        else { self.note = "" }
+        
+        if dict["Registered_by"] != nil  {  self.register_by = dict["Registered_by"]! }
+        else { self.register_by = "" }
 
     }
     

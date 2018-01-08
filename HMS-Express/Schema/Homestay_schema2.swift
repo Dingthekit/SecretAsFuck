@@ -40,21 +40,28 @@ internal class Homestay_schema2 : NSObject , NSCopying {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: String] else { return nil }
         
-        guard let HID  = dict["HID"]  else { return nil }
-        guard let guest  = dict["guest"]  else { return nil }
-        guard let bedroom = dict["bedroom"] else { return nil }
-        guard let bathroom = dict["bathroom"] else { return nil }
-        guard let kingbed = dict["kingbed"] else { return nil }
-        guard let queenbed = dict["queenbed"] else { return nil }
-        guard let singlebed = dict["singlebed"] else { return nil }
+        if dict["HID"] != nil  {  self.HID = dict["HID"]! }
+        else { self.HID = "" }
         
-        self.HID = HID
-        self.guest = guest
-        self.bedroom = bedroom
-        self.bathroom = bathroom
-        self.kingbed = kingbed
-        self.queenbed = queenbed
-        self.singlebed = singlebed
+        if dict["guest"] != nil  {  self.guest = dict["guest"]! }
+        else { self.guest = "" }
+        
+        if dict["bedroom"] != nil  {  self.bedroom = dict["bedroom"]! }
+        else { self.bedroom = "" }
+        
+        if dict["bathroom"] != nil  {  self.bathroom = dict["bathroom"]! }
+        else { self.bathroom = "" }
+        
+        if dict["kingbed"] != nil  {  self.kingbed = dict["kingbed"]! }
+        else { self.kingbed = "" }
+        
+        if dict["queenbed"] != nil  {  self.queenbed = dict["queenbed"]! }
+        else { self.queenbed = "" }
+        
+        if dict["singlebed"] != nil  {  self.singlebed = dict["singlebed"]! }
+        else { self.singlebed = "" }
+        
+
         
     }
     

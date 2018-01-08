@@ -17,6 +17,7 @@ class booknow_confirmation: UIViewController, UIPickerViewDelegate , UIPickerVie
     var customer = Customer()
     private var name = String()
     var price = Int()
+    
     fileprivate var curruser = Employee()
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -55,6 +56,11 @@ class booknow_confirmation: UIViewController, UIPickerViewDelegate , UIPickerVie
             let alert = UIAlertController(title: "", message: "One of the price has not entered. Please do the price setup in Homestay.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Comfirm", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        } else if ( (self.cust_firstname_text.text?.isEmpty)! || (self.cust_lastname_text.text?.isEmpty)! || (self.cust_contact.text?.isEmpty)!
+            || (self.cust_email.text?.isEmpty)!) {
+            let alert = UIAlertController(title: "", message: "Please enter all the mandatory information for customer", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Comfirm", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
             let alertController = UIAlertController(title: "", message: "Confirm all of the information entered are correct?", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Confirm!", style: .default , handler: { (action)-> Void in
@@ -74,6 +80,15 @@ class booknow_confirmation: UIViewController, UIPickerViewDelegate , UIPickerVie
         let booking_ref = Database.database().reference().child("Booking").child(self.information["cid"] as! String).child(key)
         let homestay_ref = Database.database().reference().child("Homestay").child(self.information["cid"] as! String).child(self.information["hid"] as! String)
         
+        // Update Customer Details
+        self.customer.set_fullname(self.cust_lastname_text.text! + self.cust_firstname_text.text!)
+        self.customer.set_lastnam((self.cust_lastname_text.text)!)
+        self.customer.set_firstname((self.cust_firstname_text.text)!)
+        self.customer.set_email(self.cust_email.text!)
+        self.customer.set_phonenumber(self.cust_contact.text!)
+        self.customer.set_CID(key)
+        
+        // Update Booking Details
         let booking_info = Booking()
         booking_info.set_bid(key)
         booking_info.set_cid(self.information["cid"] as! String)
@@ -86,7 +101,8 @@ class booknow_confirmation: UIViewController, UIPickerViewDelegate , UIPickerVie
         booking_info.set_totalprice(String(self.price))
         booking_info.set_deposit(self.deposit_uitext.text!)
         booking_info.set_note(self.note_uitext.text!)
-        // set who register this
+        
+        // Set who register this
         booking_info.set_registered(self.curruser.get_UID())
         
         homestay_ref.child("Booking").child(key).setValue(booking_info.convert_to_list())

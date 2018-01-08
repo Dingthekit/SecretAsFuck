@@ -42,17 +42,21 @@ internal class Code: NSObject {
         
         guard let dict = snapshot.value as? [String : AnyObject ] else { return nil }
         
-        guard let CID = dict["CID"] else { return nil }
-        guard let Company_Permit  = dict["Company_Permit"]  else { return nil }
-        guard let Company_Name = dict["Company_Name"] else { return nil }
-        guard let Code_Number = dict["Code_Number"] else { return nil }
-        guard let isUsed = dict["isUsed"] else { return nil }
+        if dict["CID"] != nil  {  self.CID = dict["CID"]! as! String }
+        else { self.CID = "" }
         
-        self.CID = CID as! String
-        self.Company_Permit = Company_Permit as! String
-        self.Company_Name = Company_Name as! String
-        self.Code_Number = Code_Number as! String
-        self.isUsed = isUsed as! Bool
+        if dict["Company_Permit"] != nil  {  self.Company_Permit = dict["Company_Permit"]! as! String }
+        else { self.Company_Permit = "" }
+        
+        if dict["Company_Name"] != nil  {  self.Company_Name = dict["Company_Name"]! as! String }
+        else { self.Company_Name = "" }
+        
+        if dict["Code_Number"] != nil  {  self.Code_Number = dict["Code_Number"]! as! String }
+        else { self.Code_Number = "" }
+        
+        if dict["isUsed"] != nil  {  self.isUsed = dict["isUsed"]! as! Bool }
+        else { self.isUsed = true }
+
     }
     
     public func convert_to_list() -> [String : Any] {

@@ -50,32 +50,43 @@ internal class Homestay_schema3 : NSObject, NSCopying {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: Any] else { return nil }
         
-        guard let HID  = dict["HID"]  else { return nil }
-        guard let tv  = dict["tv"]  else { return nil }
-        guard let wifi = dict["wifi"] else { return nil }
-        guard let shampoo = dict["shampoo"] else { return nil }
-        guard let aircond = dict["aircond"] else { return nil }
-        guard let hairdryer = dict["hairdryer"] else { return nil }
-        guard let iron = dict["iron"] else { return nil }
-        guard let fridge  = dict["fridge"]  else { return nil }
-        guard let microwave = dict["microwave"] else { return nil }
-        guard let oven = dict["oven"] else { return nil }
-        guard let washing = dict["washing"] else { return nil }
-        guard let dryer = dict["dryer"] else { return nil }
         
-        self.HID = HID as! String
-        self.tv = tv as! Bool 
-        self.wifi = wifi as! Bool
-        self.shampoo = shampoo as! Bool
-        self.aircond = aircond as! Bool
-        self.hairdryer = hairdryer as! Bool
-        self.iron = iron as! Bool
-        self.fridge = fridge as! Bool
-        self.microwave = microwave as! Bool
-        self.oven = oven as! Bool
-        self.washing = washing as! Bool
-        self.dryer = dryer as! Bool
+        if dict["HID"] != nil  {  self.HID = dict["HID"] as! String }
+        else { self.HID = "" }
         
+        if dict["tv"] != nil  {  self.tv = dict["tv"] as! Bool }
+        else { self.tv = false }
+        
+        if dict["wifi"] != nil  {  self.wifi = dict["wifi"] as! Bool }
+        else { self.wifi = false }
+        
+        if dict["shampoo"] != nil  {  self.shampoo = dict["shampoo"] as! Bool }
+        else { self.shampoo = false }
+        
+        if dict["aircond"] != nil  {  self.aircond = dict["aircond"] as! Bool }
+        else { self.aircond = false }
+        
+        if dict["hairdryer"] != nil  {  self.hairdryer = dict["hairdryer"] as! Bool }
+        else { self.hairdryer = false }
+        
+        if dict["iron"] != nil  {  self.iron = dict["iron"] as! Bool }
+        else { self.iron = false }
+        
+        if dict["fridge"] != nil  {  self.fridge = dict["fridge"] as! Bool }
+        else { self.fridge = false }
+        
+        if dict["microwave"] != nil  {  self.microwave = dict["microwave"] as! Bool }
+        else { self.microwave = false }
+        
+        if dict["oven"] != nil  {  self.oven = dict["oven"] as! Bool }
+        else { self.oven = false }
+
+        if dict["washing"] != nil  {  self.washing = dict["washing"] as! Bool }
+        else { self.washing = false }
+        
+        if dict["dryer"] != nil  {  self.dryer = dict["dryer"] as! Bool }
+        else { self.dryer = false }
+
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
