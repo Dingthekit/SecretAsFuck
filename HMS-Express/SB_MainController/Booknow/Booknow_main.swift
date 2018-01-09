@@ -18,7 +18,7 @@ class booknow_main: UIViewController, UITextFieldDelegate, FSCalendarDataSource,
     var checkin_nsdate = NSDate()
     var checkout_nsdate = NSDate()
     fileprivate var curruser = Employee()
-    var listofhomestay = [Homestay_schema1]()
+    var listofhomestay = [ AnyObject ]()
     @IBOutlet var sub_checkin_day: UILabel!
     @IBOutlet var sub_checkin_date: UILabel!
     @IBOutlet var sub_checkout_day: UILabel!
@@ -46,7 +46,7 @@ class booknow_main: UIViewController, UITextFieldDelegate, FSCalendarDataSource,
     }()
     private let formatter2: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM, EEE"
+        formatter.dateFormat = "dd MMM, YYYY, EEE"
         return formatter
     }()
     
@@ -191,33 +191,27 @@ class booknow_main: UIViewController, UITextFieldDelegate, FSCalendarDataSource,
         //observing the data changes
         
         let ref_Homestay = Database.database().reference().child("Homestay").child(self.curruser.get_CID());
+        
         ref_Homestay.observe(DataEventType.value, with: { (snapshot) in
-            
             let total = snapshot.childrenCount
             var counter = 0
+            
             if snapshot.childrenCount > 0 {
-                
                 self.listofhomestay.removeAll()
                 for snap in snapshot.children.allObjects as! [DataSnapshot] {
-                    for item in snap.children.allObjects as! [DataSnapshot] {
-                        if item.key == "HMI_1"{
-                            //print(item)
-                            let homestay = Homestay_schema1(snapshot: item)!
-                            self.listofhomestay.append(homestay)
-                            counter += 1
-                            if ( counter == total ) {
-                                self.Homestay_view.reloadData()
-                            }
-                        }
+                    let value = snap.value as AnyObject
+                    self.listofhomestay.append(value)
+                    counter += 1
+                    if counter == total {
+                        // animation
+                        self.Homestay_view.reloadData()
                     }
                 }
-                
-                //reloading the TableViewCell
-                self.Homestay_view.reloadData()
             } else {
-                self.Homestay_view.reloadData()
+                // animation
             }
         })
+        
     }
     
     // Function: start_queue -> Void

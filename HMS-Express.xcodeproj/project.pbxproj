@@ -51,8 +51,11 @@
 		0BAF5BB51FA3187E00C66683 /* UIPricetoggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF5BB41FA3187D00C66683 /* UIPricetoggleButton.swift */; };
 		0BB2A1C31F873B3700310465 /* Booknow_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB2A1C21F873B3700310465 /* Booknow_cell.swift */; };
 		0BB2A1C71F879C6500310465 /* Customer_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB2A1C61F879C6500310465 /* Customer_cell.swift */; };
-		0BE725141F922C7200B351E2 /* Price_homestay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE725131F922C7200B351E2 /* Price_homestay.swift */; };
+		0BE725141F922C7200B351E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE725131F922C7200B351E2 /* MainView.swift */; };
 		0BE725161F925E4700B351E2 /* Price_Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE725151F925E4700B351E2 /* Price_Calender.swift */; };
+		C21738C320048BEC0034B7AE /* Price_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C220048BEC0034B7AE /* Price_Controller.swift */; };
+		C21738C520048BF70034B7AE /* Schedule Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C420048BF70034B7AE /* Schedule Controller.swift */; };
+		C21738C720048C0A0034B7AE /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C620048C0A0034B7AE /* InfoController.swift */; };
 		C22DE9491FFE514000EFC059 /* Homestay_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22DE9481FFE514000EFC059 /* Homestay_TableViewCell.swift */; };
 		C268118D2002133800135FB1 /* Booknow_Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268118C2002133800135FB1 /* Booknow_Calender.swift */; };
 		C268118F20021EF700135FB1 /* Amenities_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268118E20021EF600135FB1 /* Amenities_Cell.swift */; };
@@ -124,9 +127,12 @@
 		0BAFD4A01F7F5C6B00B38751 /* HMS-Express.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HMS-Express.entitlements"; sourceTree = "<group>"; };
 		0BB2A1C21F873B3700310465 /* Booknow_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booknow_cell.swift; sourceTree = "<group>"; };
 		0BB2A1C61F879C6500310465 /* Customer_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer_cell.swift; sourceTree = "<group>"; };
-		0BE725131F922C7200B351E2 /* Price_homestay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price_homestay.swift; sourceTree = "<group>"; };
+		0BE725131F922C7200B351E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0BE725151F925E4700B351E2 /* Price_Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price_Calender.swift; sourceTree = "<group>"; };
 		B1F831CDECC44F0E30D15861 /* Pods_HMS_Express.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMS_Express.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21738C220048BEC0034B7AE /* Price_Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price_Controller.swift; sourceTree = "<group>"; };
+		C21738C420048BF70034B7AE /* Schedule Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule Controller.swift"; sourceTree = "<group>"; };
+		C21738C620048C0A0034B7AE /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		C22DE9481FFE514000EFC059 /* Homestay_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_TableViewCell.swift; sourceTree = "<group>"; };
 		C268118C2002133800135FB1 /* Booknow_Calender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booknow_Calender.swift; sourceTree = "<group>"; };
 		C268118E20021EF600135FB1 /* Amenities_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenities_Cell.swift; sourceTree = "<group>"; };
@@ -303,6 +309,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C21738C120048BB00034B7AE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0BE725151F925E4700B351E2 /* Price_Calender.swift */,
+				0BE725131F922C7200B351E2 /* MainView.swift */,
+				C21738C220048BEC0034B7AE /* Price_Controller.swift */,
+				C21738C420048BF70034B7AE /* Schedule Controller.swift */,
+				C21738C620048C0A0034B7AE /* InfoController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		C22DE9451FFE50A900EFC059 /* Booknow */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,8 +418,7 @@
 		C22DE9511FFE561300EFC059 /* SB_Calender */ = {
 			isa = PBXGroup;
 			children = (
-				0BE725151F925E4700B351E2 /* Price_Calender.swift */,
-				0BE725131F922C7200B351E2 /* Price_homestay.swift */,
+				C21738C120048BB00034B7AE /* Main */,
 			);
 			path = SB_Calender;
 			sourceTree = "<group>";
@@ -599,6 +616,7 @@
 				C268118F20021EF700135FB1 /* Amenities_Cell.swift in Sources */,
 				0B795B6C1F75973500252B9F /* Company_schema.swift in Sources */,
 				0B4B189B1F77A0FA00BC4B2D /* Homestay_schema2.swift in Sources */,
+				C21738C520048BF70034B7AE /* Schedule Controller.swift in Sources */,
 				0B795B5E1F75972700252B9F /* reset_password.swift in Sources */,
 				C2BD33BD1FFA4F790000CDE3 /* No_Photo_Card.swift in Sources */,
 				C2BD33B81FFA20130000CDE3 /* Booknow_search_info+table.swift in Sources */,
@@ -608,7 +626,7 @@
 				0B795B6A1F75973500252B9F /* Customer_schema.swift in Sources */,
 				C28E1E4D1FF60CAF00E7F74B /* Search_Homestay_Card.swift in Sources */,
 				0BE725161F925E4700B351E2 /* Price_Calender.swift in Sources */,
-				0BE725141F922C7200B351E2 /* Price_homestay.swift in Sources */,
+				0BE725141F922C7200B351E2 /* MainView.swift in Sources */,
 				0BB2A1C31F873B3700310465 /* Booknow_cell.swift in Sources */,
 				0B795B581F75972000252B9F /* Booknow_confirmation.swift in Sources */,
 				0BAB81701F9FC11100830615 /* single_price_cell.swift in Sources */,
@@ -626,6 +644,7 @@
 				0B795B791F75974500252B9F /* UItoggleButton.swift in Sources */,
 				0B795B761F75974500252B9F /* Homestay_info_page3.swift in Sources */,
 				0B697A741F7F95C90049CAA8 /* Code_Schema.swift in Sources */,
+				C21738C320048BEC0034B7AE /* Price_Controller.swift in Sources */,
 				C28E1E531FF60FF000E7F74B /* Homestay_final+extension.swift in Sources */,
 				C28E1E4B1FF60C9500E7F74B /* Add_Homestay_Card.swift in Sources */,
 				0B4B18991F779D2A00BC4B2D /* pax_picker.swift in Sources */,
@@ -640,6 +659,7 @@
 				C2F1C6471FF4FAFE00488345 /* Picture_Cell.swift in Sources */,
 				0BA6E2B31F94976000EF118B /* Extension.swift in Sources */,
 				0B795B741F75974500252B9F /* Homestay_info_page2.swift in Sources */,
+				C21738C720048C0A0034B7AE /* InfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

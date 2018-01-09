@@ -24,7 +24,21 @@ extension booknow_main {
         } else {
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search_Homestay_Card", for: indexPath) as! Search_Homestay_Card
-            cell.homestay_name.text = self.listofhomestay[indexPath.row].get_name()
+            
+            let homestay_info = self.listofhomestay[indexPath.row] as! [ String : AnyObject ]
+            
+            // Get Name
+            let HMI_1 =  Homestay_schema1.init(listitem: (homestay_info["HMI_1"] as? [ String : String ])!)
+            cell.homestay_name.text = HMI_1.get_name()
+            
+            
+            // Get Image
+            let images = homestay_info["Images"] as! [ String : String ]
+            if let cover_image_url = images["IMG1"] {
+                cell.image_view.loadImageUsingCacheWithURlString(urlString: cover_image_url)
+            }
+            cell.image_view.contentMode = .scaleAspectFill
+            
             return cell
         }
 
