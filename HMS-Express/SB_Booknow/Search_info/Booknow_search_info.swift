@@ -40,7 +40,7 @@ class Booknow_search_info: UIViewController , UITableViewDelegate, UITableViewDa
     @IBOutlet var Info_Hide: UIImageView!
     @IBOutlet var Price_Hide: UIImageView!
     @IBOutlet var Gallery_view: UIView!
-    @IBOutlet var info_table: UITableView!
+    @IBOutlet var info_collection: UICollectionView!
     @IBOutlet weak var price_table : UITableView!
     @IBOutlet var Photo_collection_View: UIView!
     @IBOutlet var Information_View: UIView!
@@ -77,8 +77,6 @@ class Booknow_search_info: UIViewController , UITableViewDelegate, UITableViewDa
         super.viewDidLayoutSubviews()
         let height = min(self.view.bounds.size.height, self.price_table.contentSize.height)
         price_height.constant = height
-        let height2 = min(self.view.bounds.size.height, self.info_table.contentSize.height)
-        self.info_height.constant = height2
         self.view.layoutIfNeeded()
     }
     
@@ -89,9 +87,8 @@ class Booknow_search_info: UIViewController , UITableViewDelegate, UITableViewDa
         self.price_table.dataSource = self
         self.price_table.tag = 1
 
-        self.info_table.delegate = self
-        self.info_table.dataSource = self
-        self.info_table.tag = 2
+        self.info_collection.delegate = self
+        self.info_collection.dataSource = self
 
         self.Photo_collection.delegate = self
         self.Photo_collection.dataSource = self
@@ -206,7 +203,7 @@ class Booknow_search_info: UIViewController , UITableViewDelegate, UITableViewDa
                     self.listofinfo.append(info)
                 }
             }
-            self.info_table.reloadData()
+            self.info_collection.reloadData()
             self.amenities.reloadData()
         }
         

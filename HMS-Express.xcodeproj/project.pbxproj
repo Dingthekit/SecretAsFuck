@@ -56,6 +56,7 @@
 		C21738C320048BEC0034B7AE /* Price_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C220048BEC0034B7AE /* Price_Controller.swift */; };
 		C21738C520048BF70034B7AE /* Schedule Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C420048BF70034B7AE /* Schedule Controller.swift */; };
 		C21738C720048C0A0034B7AE /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C620048C0A0034B7AE /* InfoController.swift */; };
+		C21738C92005B19F0034B7AE /* Info_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21738C82005B19F0034B7AE /* Info_Cell.swift */; };
 		C22DE9491FFE514000EFC059 /* Homestay_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22DE9481FFE514000EFC059 /* Homestay_TableViewCell.swift */; };
 		C268118D2002133800135FB1 /* Booknow_Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268118C2002133800135FB1 /* Booknow_Calender.swift */; };
 		C268118F20021EF700135FB1 /* Amenities_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268118E20021EF600135FB1 /* Amenities_Cell.swift */; };
@@ -133,6 +134,7 @@
 		C21738C220048BEC0034B7AE /* Price_Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price_Controller.swift; sourceTree = "<group>"; };
 		C21738C420048BF70034B7AE /* Schedule Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule Controller.swift"; sourceTree = "<group>"; };
 		C21738C620048C0A0034B7AE /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
+		C21738C82005B19F0034B7AE /* Info_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Cell.swift; sourceTree = "<group>"; };
 		C22DE9481FFE514000EFC059 /* Homestay_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homestay_TableViewCell.swift; sourceTree = "<group>"; };
 		C268118C2002133800135FB1 /* Booknow_Calender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booknow_Calender.swift; sourceTree = "<group>"; };
 		C268118E20021EF600135FB1 /* Amenities_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenities_Cell.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				C2BD33B91FFA20200000CDE3 /* Booknow_search_info+handlers.swift */,
 				0B647BB51F88D4A800ADE4E7 /* Booknow_search_info.swift */,
 				0BAB816F1F9FC11100830615 /* single_price_cell.swift */,
+				C21738C82005B19F0034B7AE /* Info_Cell.swift */,
 				0BAB81711F9FC12200830615 /* total_price_cell.swift */,
 				C2BD33B51FFA1E540000CDE3 /* Booknow_search_info+collection.swift */,
 				C2BD33B71FFA20130000CDE3 /* Booknow_search_info+table.swift */,
@@ -646,6 +649,7 @@
 				0B697A741F7F95C90049CAA8 /* Code_Schema.swift in Sources */,
 				C21738C320048BEC0034B7AE /* Price_Controller.swift in Sources */,
 				C28E1E531FF60FF000E7F74B /* Homestay_final+extension.swift in Sources */,
+				C21738C92005B19F0034B7AE /* Info_Cell.swift in Sources */,
 				C28E1E4B1FF60C9500E7F74B /* Add_Homestay_Card.swift in Sources */,
 				0B4B18991F779D2A00BC4B2D /* pax_picker.swift in Sources */,
 				0B795B6B1F75973500252B9F /* Homestay_schema1.swift in Sources */,

@@ -28,18 +28,35 @@ class Price_homestay: UIViewController {
 
     
     @IBAction func toggle_type(_ sender: UISegmentedControl) {
+        
+        sender.changeUnderlinePosition()
         if self.Calender_segmented.selectedSegmentIndex == 0 {
-            self.info_view.isHidden = true
-            self.price_view.isHidden = false
-            self.schedule_view.isHidden = false
-        } else if self.Calender_segmented.selectedSegmentIndex == 1 {
-            self.info_view.isHidden = false
-            self.price_view.isHidden = false
-            self.schedule_view.isHidden = true
-        }  else  {
             self.info_view.isHidden = false
             self.price_view.isHidden = true
+            self.schedule_view.isHidden = true
+            UIView.animate(withDuration: 0.5, animations: {
+                self.info_view.alpha = 1
+                self.price_view.alpha = 0
+                self.schedule_view.alpha = 0
+            })
+        } else if self.Calender_segmented.selectedSegmentIndex == 1 {
+            self.info_view.isHidden = true
+            self.price_view.isHidden = true
             self.schedule_view.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.info_view.alpha = 0
+                self.price_view.alpha = 0
+                self.schedule_view.alpha = 1
+            })
+        }  else  {
+            self.info_view.isHidden = true
+            self.price_view.isHidden = false
+            self.schedule_view.isHidden = true
+            UIView.animate(withDuration: 0.5, animations: {
+                self.info_view.alpha = 0
+                self.price_view.alpha = 1
+                self.schedule_view.alpha = 0
+            })
         }
         
     }
@@ -127,6 +144,7 @@ class Price_homestay: UIViewController {
         // Hide All Subviews
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
 
+        self.Calender_segmented.addUnderlineForSelectedSegment()
         /*
         // Calender Delegate
         Price_calender.delegate = self

@@ -23,6 +23,12 @@ extension Booknow_search_info {
             } else {
                 return self.listofamenities.count
             }
+        } else if collectionView == self.info_collection {
+            if self.listofinfo.isEmpty {
+                return 0
+            } else {
+                return self.listofinfo.count
+            }
         } else {
             return 0
         }
@@ -46,6 +52,11 @@ extension Booknow_search_info {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Amenities_Cell", for: indexPath) as! Amenities_Cell
                 cell.amenities_title.text = self.listofamenities[indexPath.row]
                 return cell
+        } else if collectionView == self.info_collection {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Info_Cell", for: indexPath) as! Info_Cell
+            cell.title_label.text = self.listofinfo[indexPath.row]
+            cell.description_label.text = self.listofdesc[self.listofinfo[indexPath.row]]
+            return cell
         } else {
             let cell = UICollectionViewCell()
             return cell

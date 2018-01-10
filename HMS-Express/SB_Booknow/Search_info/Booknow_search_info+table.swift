@@ -13,9 +13,7 @@ extension Booknow_search_info {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ( tableView == self.info_table ) {
-            return self.listofinfo.count
-        } else if ( tableView == self.price_table ) {
+        if ( tableView == self.price_table ) {
             if listofdate.count == 0 { return 0 } else { return ( listofdate.count + 1 ) }
         } else {
             return 0
@@ -23,12 +21,7 @@ extension Booknow_search_info {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if ( tableView == self.info_table ) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Basic_Information_Cell", for: indexPath) as! Basic_Information_Cell
-            cell.title_label.text = self.listofinfo[indexPath.row]
-            cell.description_label.text = self.listofdesc[self.listofinfo[indexPath.row]]
-            return cell
-        } else if ( tableView == self.price_table ) {
+        if ( tableView == self.price_table ) {
             if ( indexPath.row != listofdate.count ) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "single_price", for: indexPath) as! single_price_cell
                 
