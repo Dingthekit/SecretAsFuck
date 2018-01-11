@@ -37,7 +37,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8h-Rc-FAd">
-                                <rect key="frame" x="20" y="348" width="374" height="40"/>
+                                <rect key="frame" x="20" y="344" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.1356172937" green="0.23276632629999999" blue="0.30312103429999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fCQ-5k-45c"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IU8-zn-1fm">
-                                <rect key="frame" x="20" y="188" width="374" height="40"/>
+                                <rect key="frame" x="20" y="184" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Q1a-Cf-Dpb"/>
                                 </constraints>
@@ -65,7 +65,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w77-aQ-aOz">
-                                <rect key="frame" x="20" y="248" width="374" height="40"/>
+                                <rect key="frame" x="20" y="244" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jGL-rI-0nq"/>
                                 </constraints>
@@ -74,7 +74,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UrN-fH-Gao">
-                                <rect key="frame" x="20" y="128" width="374" height="40"/>
+                                <rect key="frame" x="20" y="124" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NkP-lO-QM4"/>
                                 </constraints>
@@ -95,15 +95,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w77-aQ-aOz" firstAttribute="top" secondItem="IU8-zn-1fm" secondAttribute="bottom" constant="20" id="0Nn-az-BhH"/>
+                            <constraint firstItem="fWc-cJ-8Gv" firstAttribute="top" relation="lessThanOrEqual" secondItem="F8h-Rc-FAd" secondAttribute="bottom" priority="999" constant="348" id="9g8-6T-971"/>
                             <constraint firstItem="F8h-Rc-FAd" firstAttribute="leading" secondItem="zgj-da-1xl" secondAttribute="leadingMargin" id="AoK-bi-DTY"/>
+                            <constraint firstItem="UrN-fH-Gao" firstAttribute="top" secondItem="NtE-OQ-WmF" secondAttribute="bottom" constant="20" id="BLl-9k-ERf"/>
                             <constraint firstItem="w77-aQ-aOz" firstAttribute="trailing" secondItem="zgj-da-1xl" secondAttribute="trailingMargin" id="G7Q-e5-DfO"/>
-                            <constraint firstItem="F8h-Rc-FAd" firstAttribute="centerX" secondItem="zgj-da-1xl" secondAttribute="centerX" id="GFg-0L-Yum"/>
                             <constraint firstItem="UrN-fH-Gao" firstAttribute="trailing" secondItem="zgj-da-1xl" secondAttribute="trailingMargin" id="LPZ-MY-ffz"/>
                             <constraint firstItem="w77-aQ-aOz" firstAttribute="leading" secondItem="zgj-da-1xl" secondAttribute="leadingMargin" id="Pk9-3K-7VB"/>
                             <constraint firstItem="NtE-OQ-WmF" firstAttribute="top" secondItem="ycw-TB-yxt" secondAttribute="bottom" id="Q7F-xF-GM9"/>
                             <constraint firstItem="IU8-zn-1fm" firstAttribute="trailing" secondItem="zgj-da-1xl" secondAttribute="trailingMargin" id="SHi-Zx-x3o"/>
                             <constraint firstAttribute="trailing" secondItem="NtE-OQ-WmF" secondAttribute="trailing" id="XvS-ib-Du6"/>
-                            <constraint firstItem="F8h-Rc-FAd" firstAttribute="centerY" secondItem="zgj-da-1xl" secondAttribute="centerY" id="YSs-lq-Fp1"/>
                             <constraint firstItem="9Yi-Xn-n2M" firstAttribute="top" secondItem="zgj-da-1xl" secondAttribute="top" id="aTc-PZ-7fj"/>
                             <constraint firstItem="UrN-fH-Gao" firstAttribute="leading" secondItem="zgj-da-1xl" secondAttribute="leadingMargin" id="eCd-CI-IdK"/>
                             <constraint firstItem="F8h-Rc-FAd" firstAttribute="trailing" secondItem="zgj-da-1xl" secondAttribute="trailingMargin" id="eOp-pp-e6b"/>
@@ -226,7 +226,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Faster Way to Manage Your Homestay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yxf-LQ-cL8">
                                 <rect key="frame" x="0.0" y="148" width="414" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.1119356379" green="0.18777871130000001" blue="0.23135471339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="bottom" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7Q0-LD-Fq7">
@@ -264,7 +264,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huh-Vy-z7C">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Need an account? Sign up">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -282,9 +282,9 @@
                                     <constraint firstAttribute="trailing" secondItem="huh-Vy-z7C" secondAttribute="trailing" id="nZd-Yi-oja"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-Mt-vJm">
-                                <rect key="frame" x="20" y="362" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.1119356379" green="0.18777871130000001" blue="0.23135471339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-Mt-vJm">
+                                <rect key="frame" x="20" y="363" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.1058823529" green="0.59607843140000005" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PfG-m1-aAe"/>
                                 </constraints>
