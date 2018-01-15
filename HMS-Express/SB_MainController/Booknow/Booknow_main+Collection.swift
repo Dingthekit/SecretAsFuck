@@ -14,7 +14,7 @@ extension booknow_main {
         if self.listofhomestay.isEmpty {
             return 1
         }
-        return self.listofhomestay.count
+        return self.listofhomestay.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,23 +23,31 @@ extension booknow_main {
             return cell
         } else {
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search_Homestay_Card", for: indexPath) as! Search_Homestay_Card
-            
-            let homestay_info = self.listofhomestay[indexPath.row] as! [ String : AnyObject ]
-            
-            // Get Name
-            let HMI_1 =  Homestay_schema1.init(listitem: (homestay_info["HMI_1"] as? [ String : String ])!)
-            cell.homestay_name.text = HMI_1.get_name()
-            
-            
-            // Get Image
-            let images = homestay_info["Images"] as! [ String : String ]
-            if let cover_image_url = images["IMG1"] {
-                cell.image_view.loadImageUsingCacheWithURlString(urlString: cover_image_url)
+            if self.listofhomestay.count != indexPath.row {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search_Homestay_Card", for: indexPath) as! Search_Homestay_Card
+                
+                let homestay_info = self.listofhomestay[indexPath.row] as! [ String : AnyObject ]
+                
+                // Get Name
+                let HMI_1 =  Homestay_schema1.init(listitem: (homestay_info["HMI_1"] as? [ String : String ])!)
+                cell.homestay_name.text = HMI_1.get_name()
+                
+                
+                // Get Image
+                let images = homestay_info["Images"] as! [ String : String ]
+                if let cover_image_url = images["IMG1"] {
+                    cell.image_view.loadImageUsingCacheWithURlString(urlString: cover_image_url)
+                }
+                cell.image_view.contentMode = .scaleAspectFill
+                
+                return cell
+                
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Add_homestay", for: indexPath) as! Add_homestay
+                cell.no_homestay_info.text = "Add more Homestay?!" 
+                return cell
             }
-            cell.image_view.contentMode = .scaleAspectFill
-            
-            return cell
+
         }
 
     }
