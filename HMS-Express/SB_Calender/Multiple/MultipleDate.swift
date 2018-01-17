@@ -1,8 +1,8 @@
 //
-//  Price_Controller.swift
+//  MultipleDate.swift
 //  HMS-Express
 //
-//  Created by chia on 1/9/18.
+//  Created by Ding Zhan on 17/01/2018.
 //  Copyright © 2018 Ding Zhan Chia. All rights reserved.
 //
 
@@ -10,54 +10,28 @@ import UIKit
 import FSCalendar
 import Firebase
 
-class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+class MultipleDate: UIViewController,FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance  {
 
-    // Variable
     var listofprice = [ String : String ]()
-    var base_price = String()
-    var company_id = String()
-    var homestay_id = String()
-    var homestay_name = String()
-    
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    var company_id = String()
+    var homestay_id = String()
+    var homestay_name = String()
+    var base_price = String()
     fileprivate let gregorian = Calendar(identifier: .gregorian)
-    
-    // IBOutlet
-    @IBOutlet var Price_calender: FSCalendar!
-    @IBOutlet var baseprice_textfield: UITextField!
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "to_multiple" {
-            let vc = segue.destination as! MultipleDate
-            vc.company_id = self.company_id
-            vc.homestay_id = self.homestay_id
-        }
-    }
-    
-    override func viewDidLoad() {
-        
-        
-        super.viewDidLoad()
-        
-        // Calender Delegate
-        Price_calender.delegate = self
-        Price_calender.dataSource = self
-        self.Price_calender.register(PriceCalendarCell.self, forCellReuseIdentifier: "price_cell")
-        self.load_price()
-        
-        // Dismiss Keyboard
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action : #selector(self.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
-    }
 
-    func textFieldDidBeginEditing( _ textField: UITextField ) {
+    
+    @IBOutlet var Title_Instructions: UILabel!
+    @IBOutlet var Date_Calender: FSCalendar!
+    @IBOutlet var Done_button: UIButton!
+    
+    @IBAction func done(_ sender: UIButton) {
         // AlertController
-        let alertController = UIAlertController(title: "Confirmation", message: "Enter the base price for the homestay", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: "Enter the prices for selected date(s)", preferredStyle: .alert)
         
         // Add TextField
         alertController.addTextField {
@@ -70,14 +44,21 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
             
             guard let price_input = alertController.textFields![0].text else { return }
             
-            let price_ref = Database.database().reference().child("Homestay").child(self.company_id).child(self.homestay_id)
+            for date in self.Date_Calender.selectedDates{
+                self.Date_Calender.deselect(date)
+                self.listofprice[self.formatter.string(from: date)] = price_input
+            }
             
-            price_ref.child("Base_Price").setValue(price_input)
-            self.base_price = "$ " + price_input
-            self.baseprice_textfield.text = price_input
+            self.Title_Instructions.text = "Step 1 : Select the date(s) that prices need to be modified"
+            self.Done_button.isEnabled = false
+            self.Done_button.alpha = 0.5
+            
+            let ref = Database.database().reference().child("Homestay").child(self.company_id).child(self.homestay_id)
+            ref.child("Price").setValue(self.listofprice)
             self.load_price()
-            self.Price_calender.reloadData()
-            self.Price_calender.configureAppearance()
+            self.Date_Calender.reloadData()
+            
+            
         })
         
         // Cancel Action
@@ -91,21 +72,28 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
         
     }
     
-    func textFieldDidEndEditing( _ textField: UITextField) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.Done_button.isEnabled = false
+        self.Done_button.alpha = 0.5
+        
+        self.Date_Calender.register(PriceCalendarCell.self, forCellReuseIdentifier: "price_cell")
+        self.load_price()
 
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
     
     func load_price() {
         //observing the data changes
         
         let price_ref = Database.database().reference().child("Homestay").child(self.company_id).child(self.homestay_id).child("Base_Price")
         let specialprice_ref = Database.database().reference().child("Homestay").child(self.company_id).child(self.homestay_id).child("Price")
-
+        
         // Get base_Prcie
         price_ref.observeSingleEvent(of: DataEventType.value , with: { (snapshot) in
             
@@ -113,17 +101,16 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
             if snapshot.exists() {
                 var price = snapshot.value as! String
                 self.base_price = "$" + price
-                self.Price_calender.reloadData()
-                self.Price_calender.configureAppearance()
-
+                self.Date_Calender.reloadData()
+                self.Date_Calender.configureAppearance()
+                
             } else {
                 self.base_price = "$0"
-                self.baseprice_textfield.text = self.base_price
-                self.Price_calender.reloadData()
-                self.Price_calender.configureAppearance()
+                self.Date_Calender.reloadData()
+                self.Date_Calender.configureAppearance()
             }
         })
- 
+        
         specialprice_ref.observeSingleEvent(of: DataEventType.value , with: { (snapshot) in
             
             //if the reference have some values
@@ -137,8 +124,8 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
                     self.listofprice[date] = price
                     
                     if self.listofprice.count == snapshot.childrenCount {
-                        self.Price_calender.reloadData()
-                        self.Price_calender.configureAppearance()
+                        self.Date_Calender.reloadData()
+                        self.Date_Calender.configureAppearance()
                         
                     }
                 }
@@ -148,7 +135,7 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
         
     }
     
-    // MARK : Calender Delegate
+    // MARK : Calender delegate
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         for item in listofprice {
             if (self.formatter.date(from: item.key)!) == date {
@@ -161,46 +148,44 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         if date < calendar.today! {
             return UIColor.lightGray
-        } else {
-            return UIColor.init(red: 35/255, green: 59/255, blue: 77/255, alpha: 1)
         }
-    }
-    
-    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        let cell = calendar.dequeueReusableCell(withIdentifier: "price_cell", for: date, at: position)
-        return cell
-    }
-    
-    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
-        self.configure(cell: cell, for: date, at: position)
+        return UIColor.white
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
-        if !(date < calendar.today!) {
-            self.Price_calender.deselect(date)
+        if calendar.selectedDates.count >= 1 {
+            self.Title_Instructions.text = "Step 2 : Click Submit when done selecting the date(s)"
+            self.Done_button.isEnabled = true
+            self.Done_button.alpha = 1
+        } else {
+            self.Title_Instructions.text = "Step 1 : Select the date(s) that prices need to be modified"
+            self.Done_button.isEnabled = false
+            self.Done_button.alpha = 0.5
         }
-
-        self.configureVisibleCells()
     }
     
-    // Event Delegate
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-            return 0
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        if date < calendar.today! {
+            calendar.deselect(date)
+        }
+        
+        if calendar.selectedDates.count >= 1 {
+            self.Title_Instructions.text = "Step 2 : Click Submit when done selecting the date(s)"
+            self.Done_button.isEnabled = true
+            self.Done_button.alpha = 1
+        } else {
+            self.Title_Instructions.text = "Step 1 : Select the date(s) that prices need to be modified"
+            self.Done_button.isEnabled = false
+            self.Done_button.alpha = 0.5
+        }
     }
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-            return nil
-    }
-    
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        self.Price_calender.frame.size.height = bounds.height
-        // self.eventLabel.frame.origin.y = calendar.frame.maxY + 10
-    }
     
     func configureVisibleCells() {
-        self.Price_calender.visibleCells().forEach { (cell) in
-            let date = self.Price_calender.date(for: cell)
-            let position = self.Price_calender.monthPosition(for: cell)
+        self.Date_Calender.visibleCells().forEach { (cell) in
+            let date = self.Date_Calender.date(for: cell)
+            let position = self.Date_Calender.monthPosition(for: cell)
             self.configure(cell: cell, for: date!, at: position)
         }
     }
@@ -213,16 +198,16 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
             
             var selectionType = SelectionType.none
             
-            if self.Price_calender.selectedDates.contains(date) {
+            if self.Date_Calender.selectedDates.contains(date) {
                 let previousDate = self.gregorian.date(byAdding: .day, value: -1, to: date)!
                 let nextDate = self.gregorian.date(byAdding: .day, value: 1, to: date)!
-                if self.Price_calender.selectedDates.contains(date) {
+                if self.Date_Calender.selectedDates.contains(date) {
                     
-                    if self.Price_calender.selectedDates.contains(previousDate) && self.Price_calender.selectedDates.contains(nextDate) {
+                    if self.Date_Calender.selectedDates.contains(previousDate) && self.Date_Calender.selectedDates.contains(nextDate) {
                         selectionType = .middle
-                    } else if self.Price_calender.selectedDates.contains(previousDate) && self.Price_calender.selectedDates.contains(date) {
+                    } else if self.Date_Calender.selectedDates.contains(previousDate) && self.Date_Calender.selectedDates.contains(date) {
                         selectionType = .rightBorder
-                    } else if self.Price_calender.selectedDates.contains(nextDate) {
+                    } else if self.Date_Calender.selectedDates.contains(nextDate) {
                         selectionType = .leftBorder
                     } else {
                         selectionType = .single
@@ -244,11 +229,5 @@ class Price_Controller: UIViewController, UITextFieldDelegate, FSCalendarDataSou
             diyCell.selectionLayer.isHidden = true
         }
     } // function end
-    
-    
-    // Dismiss Keyboard
-    @objc func dismissKeyboard(){
-        view.endEditing(true)
-    }
     
 }

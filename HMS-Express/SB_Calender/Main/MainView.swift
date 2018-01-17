@@ -26,6 +26,16 @@ class Price_homestay: UIViewController {
     @IBOutlet var info_view: UIView!
     @IBOutlet var schedule_view: UIView!
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "price_segue" {
+            let vc = segue.destination as! Price_Controller
+            vc.company_id = self.company_id
+            vc.homestay_id = self.homestay_id
+            //vc.hom
+            print("SEGUE!")
+            print(vc.company_id)
+        }
+    }
     
     @IBAction func toggle_type(_ sender: UISegmentedControl) {
         
@@ -145,6 +155,11 @@ class Price_homestay: UIViewController {
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
 
         self.Calender_segmented.addUnderlineForSelectedSegment()
+        
+        self.info_view.isHidden = false
+        self.price_view.isHidden = true
+        self.schedule_view.isHidden = true
+        
         /*
         // Calender Delegate
         Price_calender.delegate = self

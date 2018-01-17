@@ -69,14 +69,8 @@ class PriceCalendarCell: FSCalendarCell {
         if self.isPlaceholder {
             self.eventIndicator.isHidden = true
             self.titleLabel.textColor = UIColor.lightGray
-        } else {
-            
-            if self.isSelected {
-                self.subtitleLabel.textColor = .white
-            } else {
-                self.subtitleLabel.textColor = UIColor.darkGray
-            }
         }
+        //self.subtitl
     }
     
     
